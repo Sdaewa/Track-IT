@@ -1,15 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import classes from './Job.module.css';
+import classes from "./Job.module.css";
 
-const Movie = (props) => {
+const Job = (props) => {
   return (
     <li className={classes.movie}>
-      <h2>{props.title}</h2>
-      <h3>{props.releaseDate}</h3>
-      <p>{props.openingText}</p>
+      <h1>{props.company}</h1>
+      <h2>{props.role}</h2>
+      <h2>{props.techStack}</h2>
+      <p>{props.location}</p>
+      <p>{props.appliedDate}</p>
     </li>
   );
 };
 
-export default Movie;
+export default Job;

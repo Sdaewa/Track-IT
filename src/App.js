@@ -1,30 +1,36 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import JobsList from "./components/JobsList";
+import Header from "./layout/Header";
 import "./App.css";
 
 function App() {
-  const dummyMovies = [
+  const dummyJobs = [
     {
       id: 1,
-      company: "Some Dummy Movie",
-      role: "This is the opening text of the movie",
-      releaseDate: "2021-05-18",
+      company: "Google",
+      role: "Backend Engineer",
+      location: "Berlin",
+      techStack: "Java",
+      appliedDate: "2021-05-18",
     },
     {
       id: 2,
-      title: "Some Dummy Movie 2",
-      openingText: "This is the second opening text of the movie",
-      releaseDate: "2021-05-19",
+      company: "Apple",
+      role: "FS engineer",
+      location: "London",
+      techStack: "Node, React, Mongo",
+      appliedDate: "2021-05-18",
     },
   ];
 
   return (
-    <React.Fragment>
+    <Fragment>
+      <Header />
       <section>
-        <JobsList jobs={dummyMovies} />
+        <JobsList jobs={dummyJobs} />
       </section>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

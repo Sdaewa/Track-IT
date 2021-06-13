@@ -1,17 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import Job from './Job';
-import classes from './JobsList.module.css';
+import Job from "./Job";
+import classes from "./JobsList.module.css";
 
 const JobsList = (props) => {
   return (
-    <ul className={classes['movies-list']}>
-      {props.movies.map((job) => (
+    <ul className={classes["movies-list"]}>
+      {props.jobs.map((job) => (
         <Job
           key={job.id}
-          title={job.title}
-          releaseDate={job.release}
-          openingText={job.openingText}
+          company={job.company}
+          role={job.role}
+          techStack={job.techStack}
+          location={job.location}
+          appliedDate={job.appliedDate}
         />
       ))}
     </ul>
