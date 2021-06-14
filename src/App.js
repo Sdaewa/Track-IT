@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 
 import JobsList from "./components/JobsList";
-import Header from "./layout/Header";
+// import Header from "./layout/Header";
 import "./App.css";
 
 const URL =
@@ -9,30 +9,39 @@ const URL =
 
 function App() {
   const [jobsData, setJobsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fetchJobsHandler();
   }, []);
 
   const fetchJobsHandler = async () => {
+    setIsLoading(true);
+
     try {
       const response = await fetch(URL);
+
       if (!response.ok) {
         throw new Error("Could not fetch data");
       }
 
       const data = await response.json();
-      console.log(data);
+
       setJobsData(data);
+      setIsLoading(false);
     } catch (error) {
       alert(error.message);
     }
   };
 
+  if (isLoading) {
+    return <p>Loading... Please wait</p>;
+  }
+
   return (
     <Fragment>
-      <Header />
       <section>
+        {/* <Header /> */}
         <JobsList jobs={jobsData} />
       </section>
     </Fragment>
