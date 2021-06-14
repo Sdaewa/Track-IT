@@ -22,7 +22,7 @@ function JobForm(props) {
       appliedDate: appliedDateRef.current.value,
     };
 
-    props.onAddMovie(job);
+    props.onAddJob(job);
   }
 
   return (
