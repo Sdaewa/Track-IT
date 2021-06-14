@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 
-import JobsList from "./components/JobsList";
+import JobsList from "./Components/JobsList";
 // import Header from "./layout/Header";
 import "./App.css";
+import JobForm from "./Components/JobForm";
 
 const URL =
   "https://track-it-temp-759d7-default-rtdb.europe-west1.firebasedatabase.app/jobs.json";
@@ -42,6 +43,7 @@ function App() {
     <Fragment>
       <section>
         {/* <Header /> */}
+        <JobForm />
         <JobsList jobs={jobsData} />
       </section>
     </Fragment>

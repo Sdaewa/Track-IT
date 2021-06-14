@@ -4,7 +4,10 @@ import Job from "./Job";
 import classes from "./JobsList.module.css";
 
 const JobsList = (props) => {
-  console.log(props.jobs);
+  if (!props.jobs) {
+    return <p>Add a job application</p>;
+  }
+
   return (
     <ul className={classes["jobs-list"]}>
       {Object.values(props.jobs).map((job) => (

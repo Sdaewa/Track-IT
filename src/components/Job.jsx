@@ -4,7 +4,7 @@ import classes from "./Job.module.css";
 
 const Job = (props) => {
   return (
-    <li className={classes.movie}>
+    <li className={classes.job}>
       <h1>{props.company}</h1>
       <h2>{props.role}</h2>
       <h2>{props.techStack}</h2>
