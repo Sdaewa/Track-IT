@@ -1,8 +1,6 @@
 import React, { Fragment, useEffect, useState, useCallback } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import JobsList from "./Components/Jobs/JobsList";
-import JobForm from "./Components/Jobs/JobForm";
 import Layout from "./Components/Layout/Layout";
 import StartingPage from "./Components/StartingPage/StartingPageContent";
 import "./App.css";
@@ -58,9 +56,9 @@ function App() {
               <JobsApplicationPage jobs={jobsData} />
             </section>
           </Route>
-          <Route path="*">
+          {/* <Route path="*">
             <Redirect to="/" />
-          </Route>
+          </Route> */}
         </Layout>
       </Switch>
     </Fragment>
