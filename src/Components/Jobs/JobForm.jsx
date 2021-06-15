@@ -47,7 +47,7 @@ function JobForm(props) {
         <label htmlFor="applied">When did you apply?</label>
         <input type="date" id="date" ref={appliedDateRef} />
       </div>
-      <button>Add Job</button>
+      <button onClick={submitHandler}>Add Job</button>
     </form>
   );
 }

@@ -12,7 +12,7 @@ const JobsList = (props) => {
     <ul className={classes["jobs-list"]}>
       {Object.values(props.jobs).map((job) => (
         <Job
-          key={job.id}
+          key={job}
           company={job.company}
           role={job.role}
           techStack={job.techStack}
