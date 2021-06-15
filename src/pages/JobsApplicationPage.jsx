@@ -18,7 +18,7 @@ const addJobHandler = async (job) => {
 const JobsApplicationPage = (props) => {
   return (
     <Fragment>
-      <Route path="/applications/new-application">
+      <Route path="/new-application">
         <JobForm onAddJob={addJobHandler} />
       </Route>
       <JobsList jobs={props.jobs} />

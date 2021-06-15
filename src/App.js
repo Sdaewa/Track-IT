@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState, useCallback } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import Layout from "./Components/Layout/Layout";
-import StartingPage from "./Components/StartingPage/StartingPageContent";
+import StartingPage from "./pages/StartingPageContent";
 import "./App.css";
 import JobsApplicationPage from "./pages/JobsApplicationPage";
 import AuthForm from "./Components/Auth/AuthForm";
