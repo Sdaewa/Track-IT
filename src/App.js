@@ -58,6 +58,9 @@ function App() {
               <JobsApplicationPage jobs={jobsData} />
             </section>
           </Route>
+          <Route path="*">
+            <Redirect to="/" />
+          </Route>
         </Layout>
       </Switch>
     </Fragment>
