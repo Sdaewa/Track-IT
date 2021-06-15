@@ -20,6 +20,7 @@ const JobsList = (props) => {
           appliedDate={job.appliedDate}
         />
       ))}
+      <button>Add Job</button>
     </ul>
   );
 };
