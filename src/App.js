@@ -7,6 +7,7 @@ import Layout from "./Components/Layout/Layout";
 import StartingPage from "./Components/StartingPage/StartingPageContent";
 import "./App.css";
 import JobsApplicationPage from "./pages/JobsApplicationPage";
+import AuthForm from "./Components/Auth/AuthForm";
 
 const URL =
   "https://track-it-temp-759d7-default-rtdb.europe-west1.firebasedatabase.app/jobs.json";
@@ -38,17 +39,6 @@ function App() {
     fetchJobsHandler();
   }, [fetchJobsHandler]);
 
-  const addJobHandler = async (job) => {
-    const response = await fetch(URL, {
-      method: "POST",
-      body: JSON.stringify(job),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-  };
-
   if (isLoading) {
     return <p>Loading... Please wait</p>;
   }
@@ -59,6 +49,9 @@ function App() {
         <Layout>
           <Route path="/" exact>
             <StartingPage />
+          </Route>
+          <Route path="/auth">
+            <AuthForm />
           </Route>
           <Route path="/applications">
             <section>
