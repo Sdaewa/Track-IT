@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState, useCallback } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
-import Layout from "./Components/Layout/Layout";
-import StartingPage from "./pages/StartingPageContent";
 import "./App.css";
+import Layout from "./Components/Layout/Layout";
 import JobsApplicationPage from "./pages/JobsApplicationPage";
 import AuthForm from "./Components/Auth/AuthForm";
+import HomePage from "./Components/Layout/StartingPageContent";
 
 const URL =
   "https://track-it-temp-759d7-default-rtdb.europe-west1.firebasedatabase.app/jobs.json";
@@ -46,7 +46,7 @@ function App() {
       <Switch>
         <Layout>
           <Route path="/" exact>
-            <StartingPage />
+            <HomePage />
           </Route>
           <Route path="/auth">
             <AuthForm />
@@ -56,9 +56,6 @@ function App() {
               <JobsApplicationPage jobs={jobsData} />
             </section>
           </Route>
-          {/* <Route path="*">
-            <Redirect to="/" />
-          </Route> */}
         </Layout>
       </Switch>
     </Fragment>

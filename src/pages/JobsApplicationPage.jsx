@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
-import { Route } from "react-router-dom";
+import React, { Fragment, useState } from "react";
 
 import JobForm from "../Components/Jobs/JobForm";
+import Modal from "../Components/UI/Modal";
+import Button from "../Components/UI/Button";
 import JobsList from "../Components/Jobs/JobsList";
 
 const addJobHandler = async (job) => {
@@ -13,15 +14,27 @@ const addJobHandler = async (job) => {
     },
   });
   const data = await response.json();
+  console.log(data);
 };
 
 const JobsApplicationPage = (props) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const showModalHandler = () => {
+    setShowModal(true);
+  };
+
   return (
     <Fragment>
-      <Route path="/new-application">
-        <JobForm onAddJob={addJobHandler} />
-      </Route>
-      <JobsList jobs={props.jobs} />
+      <Button onClick={showModalHandler}>Add Job</Button>
+      {showModal && (
+        <Modal>
+          <JobForm onAddJob={addJobHandler} />
+        </Modal>
+      )}
+      <section>
+        <JobsList jobs={props.jobs} />
+      </section>
     </Fragment>
   );
 };

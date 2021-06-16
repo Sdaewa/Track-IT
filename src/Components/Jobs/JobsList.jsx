@@ -10,7 +10,6 @@ const JobsList = (props) => {
 
   return (
     <ul className={classes["jobs-list"]}>
-      <button>Add Job</button>
       {Object.values(props.jobs).map((job) => (
         <Job
           key={job}
