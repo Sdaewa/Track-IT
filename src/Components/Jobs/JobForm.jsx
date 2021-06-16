@@ -52,7 +52,9 @@ function JobForm(props) {
       <Button type="button" onClick={submitHandler}>
         Add Job
       </Button>
-      <Button type="button">Cancel</Button>
+      <Button onClick={props.onClose} type="button">
+        Cancel
+      </Button>
     </form>
   );
 }

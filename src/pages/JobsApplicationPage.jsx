@@ -24,12 +24,16 @@ const JobsApplicationPage = (props) => {
     setShowModal(true);
   };
 
+  const closeModalHandler = () => {
+    setShowModal(false);
+  };
+
   return (
     <Fragment>
       <Button onClick={showModalHandler}>Add Job</Button>
       {showModal && (
-        <Modal>
-          <JobForm onAddJob={addJobHandler} />
+        <Modal onClose={closeModalHandler}>
+          <JobForm onClose={closeModalHandler} onAddJob={addJobHandler} />
         </Modal>
       )}
       <section>
