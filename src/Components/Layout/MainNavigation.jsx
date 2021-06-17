@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 
 import AuthContext from "../../store/auth-context";
 import classes from "./MainNavigation.module.css";
@@ -24,17 +24,17 @@ const MainNavigation = () => {
         <ul>
           {!isLoggedIn && (
             <li>
-              <Link to="/auth">Login</Link>
+              <NavLink to="/auth">Login</NavLink>
             </li>
           )}
           {isLoggedIn && (
             <li>
-              <Link to="/profile">Profile</Link>
+              <NavLink to="/profile">Profile</NavLink>
             </li>
           )}
           {isLoggedIn && (
             <li>
-              <Link to="/applications">Your Jobs</Link>
+              <NavLink to="/applications">Your Jobs</NavLink>
             </li>
           )}
           {isLoggedIn && (

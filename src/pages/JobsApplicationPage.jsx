@@ -5,7 +5,7 @@ import Modal from "../Components/UI/Modal";
 import Button from "../Components/UI/Button";
 import JobsList from "../Components/Jobs/JobsList";
 
-const JobsApplicationPage = (props) => {
+const JobsApplicationPage = () => {
   const [showModal, setShowModal] = useState(false);
 
   const showModalHandler = () => {

@@ -22,7 +22,6 @@ const JobForm = (props) => {
         "Content-Type": "application/json",
       },
     });
-    console.log("Response:", response);
     const data = await response.json();
     console.log(data);
   };
@@ -33,8 +32,6 @@ const JobForm = (props) => {
     // could add validation here...
 
     const job = {
-      //temporary way of assigning ID
-      id: Math.random(),
       company: companyRef.current.value,
       role: roleRef.current.value,
       techStack: techStackRef.current.value,

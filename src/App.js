@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./Components/Layout/Layout";
 import JobsApplicationPage from "./pages/JobsApplicationPage";
+import JobDetailPage from "./pages/JobDetailPage";
 import AuthForm from "./Components/Auth/AuthForm";
 import HomePage from "./Components/Layout/StartingPageContent";
 
@@ -18,9 +19,14 @@ function App() {
           <Route path="/auth">
             <AuthForm />
           </Route>
-          <Route path="/applications">
+          <Route path="/applications" exact>
             <section>
               <JobsApplicationPage />
+            </section>
+          </Route>
+          <Route path="/applications/:applicationId">
+            <section>
+              <JobDetailPage />
             </section>
           </Route>
         </Layout>

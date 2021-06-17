@@ -10,7 +10,7 @@ const JobsList = () => {
   const [jobsData, setJobsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchJobsHandler = useCallback(async () => {
+  const fetchJobs = useCallback(async () => {
     setIsLoading(true);
 
     try {
@@ -22,7 +22,20 @@ const JobsList = () => {
 
       const data = await response.json();
 
-      setJobsData(data);
+      const jobs = [];
+
+      for (const key in data) {
+        jobs.push({
+          id: key,
+          company: data[key].company,
+          role: data[key].role,
+          techStack: data[key].techStack,
+          location: data[key].location,
+          appliedDate: data[key].appliedDate,
+        });
+      }
+
+      setJobsData(jobs);
       setIsLoading(false);
     } catch (error) {
       alert(error.message);
@@ -30,8 +43,8 @@ const JobsList = () => {
   }, []);
 
   useEffect(() => {
-    fetchJobsHandler();
-  }, [fetchJobsHandler]);
+    fetchJobs();
+  }, [fetchJobs]);
 
   if (isLoading) {
     return <p>Loading... Please wait</p>;
@@ -43,7 +56,7 @@ const JobsList = () => {
 
   return (
     <ul className={classes["jobs-list"]}>
-      {Object.values(jobsData).map((job) => (
+      {jobsData.map((job) => (
         <Job
           key={job.id}
           company={job.company}
