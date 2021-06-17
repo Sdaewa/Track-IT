@@ -3,28 +3,47 @@ import React, { useRef } from "react";
 import Button from "../UI/Button";
 import classes from "./JobForm.module.css";
 
-function JobForm(props) {
+const URL =
+  "https://track-it-temp-759d7-default-rtdb.europe-west1.firebasedatabase.app/jobs.json";
+
+const JobForm = (props) => {
   const companyRef = useRef("");
   const roleRef = useRef("");
   const techStackRef = useRef("");
   const locationRef = useRef("");
   const appliedDateRef = useRef("");
 
-  function submitHandler(event) {
+  const addJob = async (job) => {
+    const response = await fetch(URL, {
+      method: "POST",
+      body: JSON.stringify(job),
+      returnSecureToken: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log("Response:", response);
+    const data = await response.json();
+    console.log(data);
+  };
+
+  const submitHandler = (event) => {
     event.preventDefault();
 
     // could add validation here...
 
     const job = {
+      //temporary way of assigning ID
+      id: Math.random(),
       company: companyRef.current.value,
       role: roleRef.current.value,
       techStack: techStackRef.current.value,
       locationText: locationRef.current.value,
       appliedDate: appliedDateRef.current.value,
     };
-
-    props.onAddJob(job);
-  }
+    props.onClose();
+    addJob(job);
+  };
 
   return (
     <form onSubmit={submitHandler}>
@@ -48,15 +67,14 @@ function JobForm(props) {
         <label htmlFor="applied">When did you apply?</label>
         <input type="date" id="date" ref={appliedDateRef} />
       </div>
-
       <Button type="button" onClick={submitHandler}>
-        Add Job
+        Add
       </Button>
       <Button onClick={props.onClose} type="button">
         Cancel
       </Button>
     </form>
   );
-}
+};
 
 export default JobForm;

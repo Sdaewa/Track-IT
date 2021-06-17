@@ -5,18 +5,6 @@ import Modal from "../Components/UI/Modal";
 import Button from "../Components/UI/Button";
 import JobsList from "../Components/Jobs/JobsList";
 
-const addJobHandler = async (job) => {
-  const response = await fetch(URL, {
-    method: "POST",
-    body: JSON.stringify(job),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const data = await response.json();
-  console.log(data);
-};
-
 const JobsApplicationPage = (props) => {
   const [showModal, setShowModal] = useState(false);
 
@@ -33,11 +21,11 @@ const JobsApplicationPage = (props) => {
       <Button onClick={showModalHandler}>Add Job</Button>
       {showModal && (
         <Modal onClose={closeModalHandler}>
-          <JobForm onClose={closeModalHandler} onAddJob={addJobHandler} />
+          <JobForm onClose={closeModalHandler} />
         </Modal>
       )}
       <section>
-        <JobsList jobs={props.jobs} />
+        <JobsList />
       </section>
     </Fragment>
   );
