@@ -1,16 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import classes from "./Job.module.css";
 
 const Job = (props) => {
   return (
-    <li className={classes.job}>
+    <Link className={classes.job} to={`/applications/${props.id}`}>
       <h1>{props.company}</h1>
-      <h2>{props.role}</h2>
-      <h2>{props.techStack}</h2>
-      <p>{props.location}</p>
-      <p>{props.appliedDate}</p>
-    </li>
+    </Link>
   );
 };
 

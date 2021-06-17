@@ -5,7 +5,7 @@ import Modal from "../Components/UI/Modal";
 import Button from "../Components/UI/Button";
 import JobsList from "../Components/Jobs/JobsList";
 
-const JobsApplicationPage = () => {
+const JobsApplicationPage = (props) => {
   const [showModal, setShowModal] = useState(false);
 
   const showModalHandler = () => {
@@ -25,7 +25,7 @@ const JobsApplicationPage = () => {
         </Modal>
       )}
       <section>
-        <JobsList />
+        <JobsList jobs={props.onFetch} />
       </section>
     </Fragment>
   );
