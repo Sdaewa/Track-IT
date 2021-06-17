@@ -35,7 +35,6 @@ function App() {
           company: data[key].company,
           role: data[key].role,
           techStack: data[key].techStack,
-          location: data[key].location,
           appliedDate: data[key].appliedDate,
         });
       }
