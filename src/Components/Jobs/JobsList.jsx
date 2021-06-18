@@ -6,7 +6,7 @@ import classes from "./JobsList.module.css";
 const JobsList = (props) => {
   return (
     <ul className={classes["jobs-list"]}>
-      {props.jobs.map((job) => (
+      {props.fetchJobs.map((job) => (
         <Job key={job.id} id={job.id} company={job.company} />
       ))}
     </ul>

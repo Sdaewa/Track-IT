@@ -21,11 +21,11 @@ const JobsApplicationPage = (props) => {
       <Button onClick={showModalHandler}>Add Job</Button>
       {showModal && (
         <Modal onClose={closeModalHandler}>
-          <JobForm onClose={closeModalHandler} />
+          <JobForm onAddJob={props.onAddJob} onClose={closeModalHandler} />
         </Modal>
       )}
       <section>
-        <JobsList jobs={props.onFetch} />
+        <JobsList fetchJobs={props.onFetch} />
       </section>
     </Fragment>
   );

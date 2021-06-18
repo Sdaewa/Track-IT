@@ -7,6 +7,7 @@ import JobsApplicationPage from "./pages/JobsApplicationPage";
 import JobDetailPage from "./pages/JobDetailsPage";
 import AuthForm from "./Components/Auth/AuthForm";
 import HomePage from "./Components/Layout/StartingPageContent";
+import ProfilePage from "./pages/ProfilePage";
 
 const URL =
   "https://track-it-temp-759d7-default-rtdb.europe-west1.firebasedatabase.app/jobs.json";
@@ -46,9 +47,38 @@ function App() {
     }
   }, []);
 
+  const addJobHandler = useCallback(async (newJob) => {
+    console.log(newJob);
+    const response = await fetch(URL, {
+      method: "POST",
+      body: JSON.stringify(newJob),
+      returnSecureToken: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    const job = [];
+
+    for (const key in data) {
+      job.push({
+        id: key,
+        company: data[key].company,
+        role: data[key].role,
+        techStack: data[key].techStack,
+        appliedDate: data[key].appliedDate,
+      });
+    }
+
+    setJobsData((prevJobs) => {
+      return [...prevJobs, job];
+    });
+  }, []);
+
   useEffect(() => {
     fetchJobsHandler();
-  }, [fetchJobsHandler]);
+    addJobHandler();
+  }, []);
 
   if (isLoading) {
     return <p>Loading... Please wait</p>;
@@ -68,14 +98,20 @@ function App() {
           <Route path="/auth">
             <AuthForm />
           </Route>
+          <Route path="/profile">
+            <ProfilePage />
+          </Route>
           <Route path="/applications" exact>
             <section>
-              <JobsApplicationPage onFetch={jobsData} />
+              <JobsApplicationPage
+                onAddJob={addJobHandler}
+                onFetch={jobsData}
+              />
             </section>
           </Route>
           <Route path="/applications/:applicationId">
             <section>
-              <JobDetailPage onFetch={jobsData} />
+              <JobDetailPage jobs={jobsData} />
             </section>
           </Route>
         </Layout>

@@ -8,8 +8,7 @@ const JobDetailPage = (props) => {
   const params = useParams();
   const history = useHistory();
 
-  const job = props.onFetch.find((job) => job.id === params.applicationId);
-  console.log(props);
+  const job = props.jobs.find((job) => job.id === params.applicationId);
 
   if (!job) {
     return <p>No application found</p>;
