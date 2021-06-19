@@ -58,11 +58,13 @@ function App() {
       },
     });
     const data = await response.json();
+
     const job = [];
+    const addedId = data.name;
 
     for (const key in data) {
       job.push({
-        id: key,
+        id: addedId,
         company: data[key].company,
         role: data[key].role,
         techStack: data[key].techStack,
@@ -77,7 +79,6 @@ function App() {
 
   useEffect(() => {
     fetchJobsHandler();
-    addJobHandler();
   }, []);
 
   if (isLoading) {
