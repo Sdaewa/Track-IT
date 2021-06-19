@@ -47,36 +47,6 @@ function App() {
     }
   }, []);
 
-  const addJobHandler = useCallback(async (newJob) => {
-    console.log(newJob);
-    const response = await fetch(URL, {
-      method: "POST",
-      body: JSON.stringify(newJob),
-      returnSecureToken: true,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
-
-    const job = [];
-    const addedId = data.name;
-
-    for (const key in data) {
-      job.push({
-        id: addedId,
-        company: data[key].company,
-        role: data[key].role,
-        techStack: data[key].techStack,
-        appliedDate: data[key].appliedDate,
-      });
-    }
-
-    setJobsData((prevJobs) => {
-      return [...prevJobs, job];
-    });
-  }, []);
-
   useEffect(() => {
     fetchJobsHandler();
   }, []);
