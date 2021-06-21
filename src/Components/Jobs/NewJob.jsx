@@ -9,7 +9,7 @@ const NewJob = (props) => {
   const addJobHandler = async (newJob) => {
     const response = await fetch(URL, {
       method: "POST",
-      body: JSON.stringify({ jobData: newJob }),
+      body: JSON.stringify(newJob),
       returnSecureToken: true,
       headers: {
         "Content-Type": "application/json",

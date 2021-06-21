@@ -10,10 +10,6 @@ const JobDetailPage = (props) => {
 
   const job = props.jobs.find((job) => job.id === params.applicationId);
 
-  if (!job) {
-    return <p>No application found</p>;
-  }
-
   const btnHandler = (event) => {
     event.preventDefault();
     history.push("/applications");
