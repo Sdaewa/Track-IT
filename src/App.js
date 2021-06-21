@@ -47,9 +47,15 @@ function App() {
     }
   }, []);
 
+  const addNewJobHandler = (newJob) => {
+    setJobsData((prevJob) => {
+      return [newJob, ...prevJob];
+    });
+  };
+
   useEffect(() => {
     fetchJobsHandler();
-  }, []);
+  }, [fetchJobsHandler]);
 
   if (isLoading) {
     return <p>Loading... Please wait</p>;
@@ -75,7 +81,7 @@ function App() {
           <Route path="/applications" exact>
             <section>
               <JobsApplicationPage
-                onAddJob={addJobHandler}
+                onAddJob={addNewJobHandler}
                 onFetch={jobsData}
               />
             </section>

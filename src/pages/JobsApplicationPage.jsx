@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-import JobForm from "../Components/Jobs/JobForm";
+import NewJob from "../Components/Jobs/NewJob";
 import Modal from "../Components/UI/Modal";
 import Button from "../Components/UI/Button";
 import JobsList from "../Components/Jobs/JobsList";
@@ -21,7 +21,7 @@ const JobsApplicationPage = (props) => {
       <Button onClick={showModalHandler}>Add Job</Button>
       {showModal && (
         <Modal onClose={closeModalHandler}>
-          <JobForm onAddJob={props.onAddJob} onClose={closeModalHandler} />
+          <NewJob onAddJob={props.onAddJob} onClose={closeModalHandler} />
         </Modal>
       )}
       <section>

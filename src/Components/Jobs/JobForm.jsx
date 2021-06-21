@@ -9,33 +9,19 @@ const JobForm = (props) => {
   const techStackRef = useRef("");
   const appliedDateRef = useRef("");
 
-  const addJobHandler = async (newJob) => {
-    const response = await fetch(URL, {
-      method: "POST",
-      body: JSON.stringify(newJob),
-      returnSecureToken: true,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await response.json();
+  const submitHandler = (event) => {
+    event.preventDefault();
 
+    // could add validation here...
     const job = {
-      id: data.name,
       company: companyRef.current.value,
       role: roleRef.current.value,
       techStack: techStackRef.current.value,
       appliedDate: appliedDateRef.current.value,
     };
-  };
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-
-    // could add validation here...
     props.onClose();
-    // props.onAddJob(job);
-    addJobHandler();
+    props.onEnterJob(job);
   };
 
   return (
