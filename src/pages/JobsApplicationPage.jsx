@@ -72,20 +72,20 @@ const JobsApplicationPage = (props) => {
 
   return (
     <Fragment>
-      <Button onClick={showModalHandler}>Add Job</Button>
-      {showModal && (
-        <Modal onClose={closeModalHandler}>
-          <NewJob onAddJob={addNewJobHandler} onClose={closeModalHandler} />
-        </Modal>
-      )}
       <section>
+        <Button onClick={showModalHandler}>Add Job</Button>
+        {showModal && (
+          <Modal onClose={closeModalHandler}>
+            <NewJob onAddJob={addNewJobHandler} onClose={closeModalHandler} />
+          </Modal>
+        )}
         <JobsList jobs={jobsData} fetchJobs={fetchJobsHandler} />
+        <Route path="/applications/:applicationId">
+          <Modal onClose={closeModalHandler}>
+            <JobDetailsPage jobs={jobsData} />
+          </Modal>
+        </Route>
       </section>
-      <Route path="/applications/:applicationId">
-        <Modal onClose={closeModalHandler}>
-          <JobDetailsPage jobs={jobsData} />
-        </Modal>
-      </Route>
     </Fragment>
   );
 };

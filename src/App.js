@@ -23,9 +23,7 @@ function App() {
             <ProfilePage />
           </Route>
           <Route path="/applications">
-            <section>
-              <JobsApplicationPage />
-            </section>
+            <JobsApplicationPage />
           </Route>
         </Layout>
       </Switch>
