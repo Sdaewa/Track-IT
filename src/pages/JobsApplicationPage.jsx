@@ -66,13 +66,10 @@ const JobsApplicationPage = () => {
     history.push("/applications");
   };
 
-  if (isLoading) {
-    return <p>Loading... Please wait</p>;
-  }
-
   return (
     <Fragment>
       <section>
+        {isLoading && <p>Loading... Please wait</p>}
         <Button onClick={showModalHandler}>Add Job</Button>
         {showModal && (
           <Modal onClose={closeModalHandler}>
