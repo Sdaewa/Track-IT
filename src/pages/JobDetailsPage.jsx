@@ -22,7 +22,7 @@ const JobDetailPage = (props) => {
         <h2>{job.role}</h2>
         <h2>{job.techStack}</h2>
         <p>{job.appliedDate}</p>
-        <Button onClick={btnHandler}>Back</Button>
+        <Button onClick={btnHandler}>Close</Button>
       </section>
     </Fragment>
   );
