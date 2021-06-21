@@ -10,7 +10,7 @@ import JobDetailsPage from "./JobDetailsPage";
 const URL =
   "https://track-it-temp-759d7-default-rtdb.europe-west1.firebasedatabase.app/jobs.json";
 
-const JobsApplicationPage = (props) => {
+const JobsApplicationPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [jobsData, setJobsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
