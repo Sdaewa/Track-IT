@@ -52,7 +52,7 @@ const JobsApplicationPage = () => {
         <JobsList jobs={jobs} />
         <Route path="/applications/:applicationId">
           <Modal onClose={closeModalHandler}>
-            <JobDetailsPage />
+            <JobDetailsPage jobs={jobs} />
           </Modal>
         </Route>
       </section>
