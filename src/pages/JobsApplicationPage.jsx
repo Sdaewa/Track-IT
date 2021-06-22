@@ -12,7 +12,7 @@ import { getJobs } from "../lib/api";
 const JobsApplicationPage = () => {
   const [showModal, setShowModal] = useState(false);
   const history = useHistory();
-  const { sendRequest, data: jobs } = useHttp(getJobs, true);
+  const { sendRequest, data: jobs, status } = useHttp(getJobs, true);
 
   console.log(jobs);
 
@@ -38,7 +38,7 @@ const JobsApplicationPage = () => {
             <NewJob onClose={closeModalHandler} />
           </Modal>
         )}
-        <JobsList jobs={jobs} />
+        <JobsList isLoading={status === "pending"} jobs={jobs} />
         <Route path="/applications/:applicationId">
           <Modal onClose={closeModalHandler}>
             <JobDetailsPage jobs={jobs} />
