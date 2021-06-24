@@ -39,4 +39,3 @@ export const addJob = async (jobData) =>{
 
   return null;
 }
-
