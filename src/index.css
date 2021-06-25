@@ -30,6 +30,8 @@ body {
   padding: 0.75rem 1.5rem;
   border: 1px solid #38015c;
   cursor: pointer;
+  margin-bottom: inherit;
+  width: 140px;
 }
 
 .btn:hover,

@@ -6,8 +6,8 @@
   align-items: flex-end;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  background-color: #272727;
-  color: white;
+  background-color: #f7f0fa;
+  color: #162b2b;
 }
 
 .job:last-of-type {

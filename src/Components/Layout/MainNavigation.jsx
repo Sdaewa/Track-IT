@@ -45,7 +45,7 @@ const MainNavigation = () => {
           )}
           {isLoggedIn && (
             <li>
-              <NavLink activeClassName={classes.active} to="/Jobs">
+              <NavLink activeClassName={classes.active} to="/jobs">
                 Your Jobs
               </NavLink>
             </li>

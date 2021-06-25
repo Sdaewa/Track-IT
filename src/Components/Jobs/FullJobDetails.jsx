@@ -8,8 +8,8 @@ const FullJobDetails = (props) => {
   return (
     <Fragment>
       <figure className={classes.job}>
-        <p>{props.company}</p>
-        <p>{props.role}</p>
+        <h1>{props.company}</h1>
+        <h1>{props.role}</h1>
         <p>{props.techStack}</p>
         <p>{props.appliedDate}</p>
         <Link className="btn" to={`/jobs`}>

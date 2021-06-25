@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 
 import classes from "./Comments.module.css";
 import NewCommentForm from "./NewCommentForm";
+import Card from "../UI/Card";
 import useHttp from "../../hooks/use-http";
 import { getAllComments } from "../../lib/api";
 import LoadingSpinner from "../UI/LoadingSpinner";
@@ -52,18 +53,20 @@ const Comments = () => {
   }
 
   return (
-    <section className={classes.comments}>
-      <h2>User Comments</h2>
-      {!isAddingComment && (
-        <button className="btn" onClick={startAddCommentHandler}>
-          Add a Comment
-        </button>
-      )}
-      {isAddingComment && (
-        <NewCommentForm jobId={jobId} onAddedComment={addedCommentHandler} />
-      )}
-      {comments}
-    </section>
+    <Card>
+      <section className={classes.comments}>
+        <h2>Comments</h2>
+        {!isAddingComment && (
+          <button className="btn" onClick={startAddCommentHandler}>
+            Add Comment
+          </button>
+        )}
+        {isAddingComment && (
+          <NewCommentForm jobId={jobId} onAddedComment={addedCommentHandler} />
+        )}
+        {comments}
+      </section>
+    </Card>
   );
 };
 

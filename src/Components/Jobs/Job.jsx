@@ -6,11 +6,11 @@ import classes from "./Job.module.css";
 const Job = (props) => {
   return (
     <li className={classes.job}>
-      <figure>
-        <p>{props.company}</p>
-      </figure>
+      <div>
+        <h1>{props.company}</h1>
+      </div>
       <Link className="btn" to={`/jobs/${props.id}`}>
-        Details
+        More Details
       </Link>
     </li>
   );
