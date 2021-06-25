@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 
 import AuthContext from "../../store/auth-context";
 import classes from "./MainNavigation.module.css";
@@ -8,7 +8,6 @@ const MainNavigation = () => {
   const authCtx = useContext(AuthContext);
   const history = useHistory();
 
-  console.log(authCtx);
   const isLoggedIn = authCtx.isLoggedIn;
 
   const logoutHandler = () => {
@@ -18,7 +17,9 @@ const MainNavigation = () => {
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>Track IT</div>
+      <Link to="/">
+        <div className={classes.logo}>Track IT</div>
+      </Link>
       <nav className={classes.nav}>
         <ul>
           {!isLoggedIn && (

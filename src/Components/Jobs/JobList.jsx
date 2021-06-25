@@ -1,12 +1,12 @@
 import React from "react";
-import { Fragment } from "react";
 
+import Card from "../UI/Card";
 import Job from "./Job";
 import classes from "./JobList.module.css";
 
 const JobList = (props) => {
   return (
-    <Fragment>
+    <Card>
       <ul className={classes.list}>
         {props.jobs.map((job) => (
           <Job
@@ -19,7 +19,7 @@ const JobList = (props) => {
           />
         ))}
       </ul>
-    </Fragment>
+    </Card>
   );
 };
 

@@ -48,8 +48,6 @@ export const AuthContextProvider = (props) => {
 
   const userIsLoggedIn = !!token;
 
-  console.log(userIsLoggedIn);
-
   const logoutHandler = useCallback(() => {
     setToken(null);
     localStorage.removeItem("token");
