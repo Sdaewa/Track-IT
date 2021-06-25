@@ -1,54 +1,88 @@
-import React, { useRef } from "react";
+import React from "react";
+import { Fragment, useRef, useState } from "react";
+import { Prompt } from "react-router-dom";
 
-import Button from "../UI/Button";
+import Card from "../UI/Card";
+import LoadingSpinner from "../UI/LoadingSpinner";
 import classes from "./JobForm.module.css";
 
 const JobForm = (props) => {
-  const companyRef = useRef("");
-  const roleRef = useRef("");
-  const techStackRef = useRef("");
-  const appliedDateRef = useRef("");
+  const [isEntering, setIsEntering] = useState(false);
 
-  const submitHandler = (event) => {
+  const companyRef = useRef();
+  const roleRef = useRef();
+  const techStackRef = useRef();
+  const appliedDateRef = useRef();
+
+  function submitFormHandler(event) {
     event.preventDefault();
 
-    // could add validation here...
-    const job = {
-      company: companyRef.current.value,
-      role: roleRef.current.value,
-      techStack: techStackRef.current.value,
-      appliedDate: appliedDateRef.current.value,
-    };
+    const inputCompany = companyRef.current.value;
+    const inputRole = roleRef.current.value;
+    const inputTechStack = techStackRef.current.value;
+    const inputAppliedDate = appliedDateRef.current.value;
 
-    props.onClose();
-    props.onEnterJob(job);
+    // optional: Could validate here
+
+    props.onAddJob({
+      company: inputCompany,
+      role: inputRole,
+      techStack: inputTechStack,
+      appliedDate: inputAppliedDate,
+    });
+  }
+
+  const finishEnteringHandler = () => {
+    setIsEntering(false);
+  };
+
+  const formFocusedHandler = () => {
+    setIsEntering(true);
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className={classes.control}>
-        <label htmlFor="company">Company</label>
-        <input type="text" id="company" ref={companyRef} />
-      </div>
-      <div className={classes.control}>
-        <label htmlFor="role">Role</label>
-        <textarea rows="1" id="Role" ref={roleRef}></textarea>
-      </div>
-      <div className={classes.control}>
-        <label htmlFor="techStack">Tech Stack</label>
-        <input type="text" id="techStack" ref={techStackRef} />
-      </div>
-      <div className={classes.control}>
-        <label htmlFor="applied">When did you apply?</label>
-        <input type="date" id="date" ref={appliedDateRef} />
-      </div>
-      <Button type="button" onClick={submitHandler}>
-        Add
-      </Button>
-      <Button onClick={props.onClose} type="button">
-        Cancel
-      </Button>
-    </form>
+    <Fragment>
+      <Prompt
+        when={isEntering}
+        message={(location) =>
+          "Are you sure you want to leave? All your entered data will be lost!"
+        }
+      />
+      <Card>
+        <form
+          onFocus={formFocusedHandler}
+          className={classes.form}
+          onSubmit={submitFormHandler}>
+          {props.isLoading && (
+            <div className={classes.loading}>
+              <LoadingSpinner />
+            </div>
+          )}
+
+          <div className={classes.control}>
+            <label htmlFor="company">Company</label>
+            <input type="text" id="company" ref={companyRef} />
+          </div>
+          <div className={classes.control}>
+            <label htmlFor="role">Role</label>
+            <input type="text" id="role" ref={roleRef} />
+          </div>
+          <div className={classes.control}>
+            <label htmlFor="techStack">Tech Stack</label>
+            <input type="text" id="techStack" ref={techStackRef} />
+          </div>
+          <div className={classes.control}>
+            <label htmlFor="appliedDate">Date</label>
+            <input type="date" id="appliedDate" ref={appliedDateRef}></input>
+          </div>
+          <div className={classes.actions}>
+            <button onClick={finishEnteringHandler} className="btn">
+              Add Job
+            </button>
+          </div>
+        </form>
+      </Card>
+    </Fragment>
   );
 };
 

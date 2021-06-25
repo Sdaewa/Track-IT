@@ -1,31 +1,62 @@
-import React, { Fragment } from "react";
-import { useParams, useHistory } from "react-router";
+import React, { Fragment, useEffect } from "react";
+import { useParams, Route, useRouteMatch } from "react-router-dom";
 
-import Button from "../Components/UI/Button";
-import classes from "./JobDetailsPage.module.css";
+import FullJobDetails from "../components/jobs/FullJobDetails";
+import Comments from "../components/comments/Comments";
+import useHttp from "../hooks/use-http";
+import { getSingleJob } from "../lib/api";
+import LoadingSpinner from "../components/UI/LoadingSpinner";
 
-const JobDetailPage = (props) => {
+const JobDetailsPage = () => {
+  const match = useRouteMatch();
   const params = useParams();
-  const history = useHistory();
 
-  const job = props.jobs.find((job) => job.id === params.applicationId);
+  const { jobId } = params;
 
-  const btnHandler = (event) => {
-    event.preventDefault();
-    history.push("/applications");
-  };
+  const { sendRequest, status, data: job, error } = useHttp(getSingleJob, true);
+
+  useEffect(() => {
+    let mounted = true;
+    if (mounted) {
+      sendRequest(jobId);
+      mounted = false;
+    }
+    return () => {
+      mounted = false;
+    };
+  }, [sendRequest, jobId]);
+
+  if (status === "pending") {
+    return (
+      <div className="centered">
+        <LoadingSpinner />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <p className="centered">{error}</p>;
+  }
+
+  if (!job) {
+    return <p>No job found</p>;
+  }
 
   return (
     <Fragment>
-      <section className={classes.job}>
-        <h1>{job.company}</h1>
-        <h2>{job.role}</h2>
-        <h2>{job.techStack}</h2>
-        <p>{job.appliedDate}</p>
-        <Button onClick={btnHandler}>Close</Button>
-      </section>
+      <FullJobDetails
+        company={job.company}
+        role={job.role}
+        techStack={job.techStack}
+        appliedDate={job.appliedDate}
+      />
+      <Route path={match.path} exact>
+        <div className="centered">
+          <Comments />
+        </div>
+      </Route>
     </Fragment>
   );
 };
 
-export default JobDetailPage;
+export default JobDetailsPage;

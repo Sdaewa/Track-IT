@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { Link, NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
-import AuthContext from "../../store/auth-context";
+import AuthContext from "../store/auth-context";
 import classes from "./MainNavigation.module.css";
 
 const MainNavigation = () => {
@@ -17,27 +17,30 @@ const MainNavigation = () => {
 
   return (
     <header className={classes.header}>
-      <Link to="/">
-        <div className={classes.logo}>Track It</div>
-      </Link>
-      <nav>
+      <div className={classes.logo}>Track IT</div>
+      <nav className={classes.nav}>
         <ul>
           {!isLoggedIn && (
             <li>
-              <NavLink to="/auth">Login</NavLink>
+              <NavLink activeClassName={classes.active} to="/auth">Login</NavLink>
             </li>
           )}
-          {isLoggedIn && (
+          {!isLoggedIn && (
             <li>
-              <NavLink to="/profile">Profile</NavLink>
+              <NavLink activeClassName={classes.active} to="/profile">Profile</NavLink>
             </li>
           )}
-          {isLoggedIn && (
+          {!isLoggedIn && (
             <li>
-              <NavLink to="/applications">Your Jobs</NavLink>
+              <NavLink activeClassName={classes.active} to="/new-job">Add Job</NavLink>
             </li>
           )}
-          {isLoggedIn && (
+          {!isLoggedIn && (
+            <li>
+              <NavLink activeClassName={classes.active} to="/Jobs">Your Jobs</NavLink>
+            </li>
+          )}
+           {!isLoggedIn && (
             <li>
               <button onClick={logoutHandler}>Logout</button>
             </li>
@@ -47,5 +50,6 @@ const MainNavigation = () => {
     </header>
   );
 };
+
 
 export default MainNavigation;

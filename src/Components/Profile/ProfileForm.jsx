@@ -1,7 +1,7 @@
 import React, { useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import AuthContext from "../../store/auth-context";
+import AuthContext from '../store/auth-context'
 import classes from "./ProfileForm.module.css";
 
 const ProfileForm = () => {
@@ -18,7 +18,7 @@ const ProfileForm = () => {
     // add validation
 
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyBZhsabDexE9BhcJbGxnZ4DiRlrCN9xe24",
+      "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyApmvDVJGzewx1YWLjDxIcucnowgCIrcPE",
       {
         method: "POST",
         body: JSON.stringify({

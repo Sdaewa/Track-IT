@@ -2,11 +2,55 @@
   box-sizing: border-box;
 }
 
-html {
-  font-family: sans-serif;
-}
-
 body {
+  font-family: 'Lato', sans-serif;
   margin: 0;
   background-color: #272727;
+}
+
+.centered {
+  margin: 3rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.focused {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #38015c;
+  color: white;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #38015c;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #460897;
+  border-color: #460897;
+}
+
+.btn--flat {
+  cursor: pointer;
+  font: inherit;
+  color: #38015c;
+  border: none;
+  background-color: none;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+}
+
+.btn--flat:hover,
+.btn--flat:active {
+  background-color: #38015c;
+  color: white;
 }

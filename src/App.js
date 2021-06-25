@@ -1,33 +1,43 @@
-import React, { Fragment } from "react";
-import { Switch, Route } from "react-router-dom";
+import React from "react";
 
-import "./App.css";
-import Layout from "./Components/Layout/Layout";
-import JobsApplicationPage from "./pages/JobsApplicationPage";
-import AuthForm from "./Components/Auth/AuthForm";
-import HomePage from "./Components/Layout/StartingPageContent";
-import ProfilePage from "./pages/ProfilePage";
+import { Route, Switch } from 'react-router-dom';
+
+import AllJobsPage from './pages/AllJobsPage';
+import HomePage from './pages/HomePage'
+import JobDetailsPage from './pages/JobDetailsPage';
+import NewJobPage from './pages/NewJobPage';
+import ProfilePage from './pages/ProfilePage'
+import AuthPage from './pages/AuthPage'
+import NotFoundPage from './pages/NotFoundPage';
+import Layout from './components/layout/Layout';
 
 function App() {
   return (
-    <Fragment>
+    <Layout>
       <Switch>
-        <Layout>
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
-          <Route path="/auth">
-            <AuthForm />
-          </Route>
-          <Route path="/profile">
+      <Route path="/" exact>
+        <HomePage />
+      </Route>
+      <Route path="/auth">
+        <AuthPage />
+      </Route>
+         <Route path="/profile">
             <ProfilePage />
           </Route>
-          <Route path="/applications">
-            <JobsApplicationPage />
-          </Route>
-        </Layout>
+        <Route path='/jobs' exact>
+          <AllJobsPage />
+        </Route>
+        <Route path='/jobs/:jobId'>
+          <JobDetailsPage />
+        </Route>
+        <Route path='/new-job'>
+          <NewJobPage />
+        </Route>
+        <Route path='*'>
+          <NotFoundPage />
+        </Route>
       </Switch>
-    </Fragment>
+    </Layout>
   );
 }
 

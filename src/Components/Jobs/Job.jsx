@@ -5,9 +5,14 @@ import classes from "./Job.module.css";
 
 const Job = (props) => {
   return (
-    <Link className={classes.job} to={`/applications/${props.id}`}>
-      <h1>{props.company}</h1>
-    </Link>
+    <li className={classes.job}>
+      <figure>
+        <p>{props.company}</p>
+      </figure>
+      <Link className="btn" to={`/jobs/${props.id}`}>
+        Details
+      </Link>
+    </li>
   );
 };
 
