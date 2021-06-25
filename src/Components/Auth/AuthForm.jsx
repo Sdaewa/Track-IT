@@ -1,7 +1,7 @@
 import React, { useState, useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import AuthContext from '../store/auth-context'
+import AuthContext from "../../store/auth-context";
 import classes from "./AuthForm.module.css";
 
 const AuthForm = () => {
@@ -27,15 +27,15 @@ const AuthForm = () => {
     // optional: Add validation
 
     setIsLoading(true);
-    let url;
+    let URL;
     if (isLogin) {
-      url =
+      URL =
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyApmvDVJGzewx1YWLjDxIcucnowgCIrcPE";
     } else {
-      url =
+      URL =
         "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyApmvDVJGzewx1YWLjDxIcucnowgCIrcPE";
     }
-    fetch(url, {
+    fetch(URL, {
       method: "POST",
       body: JSON.stringify({
         email: enteredEmail,
