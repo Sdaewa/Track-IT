@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from "react";
 import { useParams, Route, useRouteMatch } from "react-router-dom";
 
-import FullJobDetails from "../components/jobs/FullJobDetails";
-import Comments from "../components/comments/Comments";
+import FullJobDetails from "../Components/Jobs/FullJobDetails";
+import Comments from "../Components/comments/Comments";
 import useHttp from "../hooks/use-http";
 import { getSingleJob } from "../lib/api";
-import LoadingSpinner from "../components/UI/LoadingSpinner";
+import LoadingSpinner from "../Components/UI/LoadingSpinner";
 
 const JobDetailsPage = () => {
   const match = useRouteMatch();

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 
-import JobList from "../components/jobs/JobList";
-import LoadingSpinner from "../components/UI/LoadingSpinner";
-import NoJobsFound from "../components/jobs/NoJobsFound";
+import JobList from "../Components/Jobs/JobList";
+import LoadingSpinner from "../Components/UI/LoadingSpinner";
+import NoJobsFound from "../Components/Jobs/NoJobsFound";
 import useHttp from "../hooks/use-http";
 import { getAllJobs } from "../lib/api";
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import StartingPageContent from '../components/layout/StartingPageContent'
+import StartingPageContent from "../Components/Layout/StartingPageContent";
 
 const HomePage = () => {
   return <StartingPageContent />;

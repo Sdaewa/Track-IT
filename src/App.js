@@ -9,7 +9,7 @@ import NewJobPage from './pages/NewJobPage';
 import ProfilePage from './pages/ProfilePage'
 import AuthPage from './pages/AuthPage'
 import NotFoundPage from './pages/NotFoundPage';
-import Layout from './components/layout/Layout';
+import Layout from './Components/Layout/Layout';
 
 function App() {
   return (

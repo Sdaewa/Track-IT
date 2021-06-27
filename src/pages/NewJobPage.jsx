@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-import JobForm from "../components/jobs/JobForm";
+import JobForm from "../Components/Jobs/JobForm";
 import useHttp from "../hooks/use-http";
 import { addJob } from "../lib/api";
 
