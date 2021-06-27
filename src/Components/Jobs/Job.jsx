@@ -12,6 +12,9 @@ const Job = (props) => {
       <Link className="btn" to={`/jobs/${props.id}`}>
         More Details
       </Link>
+      <button className="btn" onClick={() => props.onDelete(props.id)}>
+        Delete
+      </button>
     </li>
   );
 };

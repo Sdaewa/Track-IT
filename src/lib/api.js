@@ -58,6 +58,19 @@ export async function addJob(jobData) {
   return null;
 }
 
+export async function deleteJob(jobId) {
+  const response = await fetch(`${URL}/jobs/${jobId}.json`, {
+    method: 'DELETE'
+  });
+  const data = await response.json();
+ 
+  if (!response.ok) {
+    throw new Error(data.message);
+  }
+ 
+  return null;
+}
+
 export async function addComment(requestData) {
   const response = await fetch(`${URL}/comments/${requestData.jobId}.json`, {
     method: 'POST',
