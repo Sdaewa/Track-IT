@@ -33,9 +33,15 @@ const ProfileForm = () => {
         },
       }
     ).then((res) => {
-      // assumption: Always succeeds!
-
-      history.replace("/");
+      if (res.ok) {
+        history.replace("/");
+        return res.json();
+      } else {
+        return res.json().then((data) => {
+          let errorMessage = "Could not complete request";
+          throw new Error(errorMessage);
+        });
+      }
     });
   };
 

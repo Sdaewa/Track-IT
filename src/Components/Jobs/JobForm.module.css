@@ -1,4 +1,4 @@
-.form {
+ .form {
   position: relative;
 }
 
@@ -36,7 +36,7 @@
 
 .control input:focus,
 .control textarea:focus {
-  background-color: #cbf8f8;
+  background-color: #e6cbf8;
   outline-color: #38015c;
 }
 
@@ -46,4 +46,13 @@
 
 .actions button {
   font-size: 1.25rem;
+}
+
+.invalid label {
+  color: #ca3e51;
+}
+
+.invalid input {
+  border-color: #aa0b20;
+  background-color: #ffeff1;
 }
