@@ -16,7 +16,6 @@ const ProfileForm = () => {
 
     const newEmail = newEmailInputRef.current.value;
     const newPassword = newPasswordInputRef.current.value;
-    // add validation
 
     fetch(
       "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyApmvDVJGzewx1YWLjDxIcucnowgCIrcPE",
@@ -33,15 +32,7 @@ const ProfileForm = () => {
         },
       }
     ).then((res) => {
-      if (res.ok) {
-        history.replace("/");
-        return res.json();
-      } else {
-        return res.json().then((data) => {
-          let errorMessage = "Could not complete request";
-          throw new Error(errorMessage);
-        });
-      }
+      history.replace("/");
     });
   };
 
