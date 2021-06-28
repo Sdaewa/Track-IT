@@ -2,17 +2,17 @@ import React from "react";
 
 import Card from "../UI/Card";
 import Job from "./Job";
-import useHttp from "../../hooks/use-http";
-import { deleteJob } from "../../lib/api";
+// import useHttp from "../../hooks/use-http";
+// import { deleteJob } from "../../lib/api";
 import classes from "./JobList.module.css";
 
 const JobList = (props) => {
-  const { sendRequest } = useHttp(deleteJob);
+  // const { sendRequest } = useHttp(deleteJob);
 
-  const deleteHandler = async (jobId) => {
-    sendRequest(jobId);
-    console.log(jobId);
-  };
+  // const deleteHandler = async (jobId) => {
+  //   sendRequest(jobId);
+  //   console.log(jobId);
+  // };
 
   return (
     <Card>
@@ -25,7 +25,7 @@ const JobList = (props) => {
             role={job.role}
             techStack={job.techStack}
             appliedDate={job.appliedDate}
-            onDelete={deleteHandler}
+            onDelete={props.onDelete}
           />
         ))}
       </ul>

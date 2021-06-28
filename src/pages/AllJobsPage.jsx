@@ -5,9 +5,17 @@ import LoadingSpinner from "../Components/UI/LoadingSpinner";
 import NoJobsFound from "../Components/Jobs/NoJobsFound";
 import useHttp from "../hooks/use-http";
 import { getAllJobs } from "../lib/api";
+import { deleteJob } from "../lib/api";
 
 const AllJobs = () => {
   const { sendRequest, status, data: jobs, error } = useHttp(getAllJobs, true);
+  const { sendRequest: delJob } = useHttp(deleteJob);
+
+  const deleteHandler = async (jobId) => {
+    delJob(jobId);
+
+    sendRequest();
+  };
 
   useEffect(() => {
     sendRequest();
@@ -29,7 +37,7 @@ const AllJobs = () => {
     return <NoJobsFound />;
   }
 
-  return <JobList jobs={jobs} />;
+  return <JobList onDelete={deleteHandler} jobs={jobs} />;
 };
 
 export default AllJobs;
