@@ -13,7 +13,6 @@ const AllJobs = () => {
 
   const deleteHandler = async (jobId) => {
     delJob(jobId);
-
     sendRequest();
   };
 
