@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 import classes from "./Job.module.css";
 
 const Job = (props) => {
-  const history = useHistory();
-
   const deleteHandler = (event) => {
     event.preventDefault();
     props.onDelete(props.id);

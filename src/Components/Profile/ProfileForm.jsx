@@ -8,13 +8,14 @@ const ProfileForm = () => {
   const history = useHistory();
 
   const newPasswordInputRef = useRef();
+  const newEmailInputRef = useRef();
   const authCtx = useContext(AuthContext);
 
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const enteredNewPassword = newPasswordInputRef.current.value;
-
+    const newEmail = newEmailInputRef.current.value;
+    const newPassword = newPasswordInputRef.current.value;
     // add validation
 
     fetch(
@@ -23,7 +24,8 @@ const ProfileForm = () => {
         method: "POST",
         body: JSON.stringify({
           idToken: authCtx.token,
-          password: enteredNewPassword,
+          email: newEmail,
+          password: newPassword,
           returnSecureToken: false,
         }),
         headers: {
@@ -39,6 +41,15 @@ const ProfileForm = () => {
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
+      <div className={classes.control}>
+        <label htmlFor="new-email">New Email</label>
+        <input
+          type="password"
+          id="new-password"
+          minLength="7"
+          ref={newEmailInputRef}
+        />
+      </div>
       <div className={classes.control}>
         <label htmlFor="new-password">New Password</label>
         <input

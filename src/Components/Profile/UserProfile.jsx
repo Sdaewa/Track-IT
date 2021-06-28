@@ -8,7 +8,7 @@ const UserProfile = () => {
   return (
     <Card>
       <section className={classes.profile}>
-        <h1>Your User Profile</h1>
+        <h1>Profile</h1>
         <ProfileForm />
       </section>
     </Card>
