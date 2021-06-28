@@ -1,4 +1,4 @@
-const URL = 'https://track-it-temp-759d7-default-rtdb.europe-west1.firebasedatabase.app/';
+import { URL } from "../Config/config";
 
 export async function getAllJobs() {
   const response = await fetch(`${URL}/jobs.json`);

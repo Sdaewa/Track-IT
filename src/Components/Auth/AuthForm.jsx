@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 
 import AuthContext from "../../store/auth-context";
 import classes from "./AuthForm.module.css";
+import { URL_SIGN_UP } from "../../Config/config";
+import { URL_SIGN_IN } from "../../Config/config";
 
 const AuthForm = () => {
   const history = useHistory();
@@ -27,11 +29,9 @@ const AuthForm = () => {
     setIsLoading(true);
     let URL;
     if (isLogin) {
-      URL =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyApmvDVJGzewx1YWLjDxIcucnowgCIrcPE";
+      URL = URL_SIGN_IN;
     } else {
-      URL =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyApmvDVJGzewx1YWLjDxIcucnowgCIrcPE";
+      URL = URL_SIGN_UP;
     }
     fetch(URL, {
       method: "POST",

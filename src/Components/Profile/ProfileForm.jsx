@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import AuthContext from "../../store/auth-context";
 import classes from "./ProfileForm.module.css";
+import { URL_UPDATE } from "../../Config/config";
 
 const ProfileForm = () => {
   const history = useHistory();
@@ -17,21 +18,18 @@ const ProfileForm = () => {
     const newEmail = newEmailInputRef.current.value;
     const newPassword = newPasswordInputRef.current.value;
 
-    fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyApmvDVJGzewx1YWLjDxIcucnowgCIrcPE",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          idToken: authCtx.token,
-          email: newEmail,
-          password: newPassword,
-          returnSecureToken: true,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    ).then((res) => {
+    fetch(URL_UPDATE, {
+      method: "POST",
+      body: JSON.stringify({
+        idToken: authCtx.token,
+        email: newEmail,
+        password: newPassword,
+        returnSecureToken: true,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
       history.replace("/");
     });
   };
