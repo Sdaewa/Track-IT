@@ -1,6 +1,7 @@
 import React from "react";
 import { Fragment, useRef, useState } from "react";
 import { Prompt } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
@@ -119,9 +120,13 @@ const JobForm = (props) => {
             {!formInputsValidity.appliedDate && <p>Please enter a date</p>}
           </div>
           <div className={classes.actions}>
-            <button onClick={finishEnteringHandler} className="btn">
+            <Button
+              type="submit"
+              variant="contained"
+              onClick={finishEnteringHandler}
+              className="btn">
               Add Job
-            </button>
+            </Button>
           </div>
         </form>
       </Card>

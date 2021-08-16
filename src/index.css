@@ -8,7 +8,7 @@ body {
   background-color: #272727;
 }
 
-.centered {
+/* .centered {
   margin: 3rem auto;
   text-align: center;
   display: flex;
@@ -55,4 +55,4 @@ body {
 .btn--flat:active {
   background-color: #38015c;
   color: white;
-}
+} */

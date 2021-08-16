@@ -5,24 +5,22 @@ export async function getAllJobs() {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Could not fetch Jobs Applications.');
+    throw new Error(data.message || "Could not fetch Jobs Applications.");
   }
 
   const jobs = [];
 
   for (const key in data) {
-         jobs.push({
-           id: key,
-           company: data[key].company,
-           role: data[key].role,
-           techStack: data[key].techStack,
-           appliedDate: data[key].appliedDate,
-         });
-       }
+    jobs.push({
+      id: key,
+      company: data[key].company,
+      role: data[key].role,
+      techStack: data[key].techStack,
+      appliedDate: data[key].appliedDate,
+    });
+  }
 
-  return jobs
-  
-;
+  return jobs;
 }
 
 export async function getSingleJob(jobId) {
@@ -30,7 +28,7 @@ export async function getSingleJob(jobId) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Could not fetch Job Application.');
+    throw new Error(data.message || "Could not fetch Job Application.");
   }
 
   const loadedJob = {
@@ -43,16 +41,16 @@ export async function getSingleJob(jobId) {
 
 export async function addJob(jobData) {
   const response = await fetch(`${URL}/jobs.json`, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(jobData),
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   });
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Could not add new job.');
+    throw new Error(data.message || "Could not add new job.");
   }
 
   return null;
@@ -60,29 +58,29 @@ export async function addJob(jobData) {
 
 export async function deleteJob(jobId) {
   const response = await fetch(`${URL}/jobs/${jobId}.json`, {
-    method: 'DELETE'
+    method: "DELETE",
   });
   const data = await response.json();
- 
+
   if (!response.ok) {
     throw new Error(data.message);
   }
- 
+
   return null;
 }
 
 export async function addComment(requestData) {
   const response = await fetch(`${URL}/comments/${requestData.jobId}.json`, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(requestData.commentData),
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   });
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Could not add comment.');
+    throw new Error(data.message || "Could not add comment.");
   }
 
   return { commentId: data.name };
@@ -94,7 +92,7 @@ export async function getAllComments(jobId) {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.message || 'Could not get comments.');
+    throw new Error(data.message || "Could not get comments.");
   }
 
   const transformedComments = [];

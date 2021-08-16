@@ -1,5 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
+import { Container } from "@material-ui/core";
 
 import classes from "./Layout.module.css";
 import MainNavigation from "./MainNavigation";
@@ -7,8 +8,10 @@ import MainNavigation from "./MainNavigation";
 const Layout = (props) => {
   return (
     <Fragment>
-      <MainNavigation />
-      <main className={classes.main}>{props.children}</main>
+      <Container bgcolor="grey" maxWidth="lg">
+        <MainNavigation />
+        <main className={classes.main}>{props.children}</main>
+      </Container>
     </Fragment>
   );
 };

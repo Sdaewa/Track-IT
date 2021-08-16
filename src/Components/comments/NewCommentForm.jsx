@@ -1,5 +1,6 @@
 import React from "react";
 import { useRef, useEffect } from "react";
+import { Box } from "@material-ui/core";
 
 import useHttp from "../../hooks/use-http";
 import { addComment } from "../../lib/api";
@@ -32,17 +33,17 @@ const NewCommentForm = (props) => {
   return (
     <form className={classes.form} onSubmit={submitFormHandler}>
       {status === "pending" && (
-        <div className="centered">
+        <Box className="centered">
           <LoadingSpinner />
-        </div>
+        </Box>
       )}
-      <div className={classes.control} onSubmit={submitFormHandler}>
+      <Box className={classes.control} onSubmit={submitFormHandler}>
         <label htmlFor="comment">Your Comment</label>
         <textarea id="comment" rows="5" ref={commentTextRef}></textarea>
-      </div>
-      <div className={classes.actions}>
+      </Box>
+      <Box className={classes.actions}>
         <button className="btn">Add Comment</button>
-      </div>
+      </Box>
     </form>
   );
 };

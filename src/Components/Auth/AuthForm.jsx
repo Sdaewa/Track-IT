@@ -1,5 +1,7 @@
 import React, { useState, useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { Box } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 import AuthContext from "../../store/auth-context";
 import classes from "./AuthForm.module.css";
@@ -75,11 +77,11 @@ const AuthForm = () => {
     <section className={classes.auth}>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       <form onSubmit={submitHandler}>
-        <div className={classes.control}>
+        <Box className={classes.control}>
           <label htmlFor="email">Email</label>
           <input type="email" id="email" required ref={emailInputRef} />
-        </div>
-        <div className={classes.control}>
+        </Box>
+        <Box className={classes.control}>
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -87,19 +89,21 @@ const AuthForm = () => {
             required
             ref={passwordInputRef}
           />
-        </div>
-        <div className={classes.actions}>
+        </Box>
+        <Box className={classes.actions}>
           {!isLoading && (
-            <button>{isLogin ? "Login" : "Create Account"}</button>
+            <Button type="submit">
+              {isLogin ? "Login" : "Create Account"}
+            </Button>
           )}
           {isLoading && <p>Sending request...</p>}
-          <button
-            type="button"
+          <Button
+            type="submit"
             className={classes.toggle}
             onClick={switchAuthModeHandler}>
             {isLogin ? "Create new account" : "Login with existing account"}
-          </button>
-        </div>
+          </Button>
+        </Box>
       </form>
     </section>
   );

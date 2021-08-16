@@ -1,5 +1,6 @@
 import React, { useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 import AuthContext from "../../store/auth-context";
 import classes from "./ProfileForm.module.css";
@@ -55,7 +56,9 @@ const ProfileForm = () => {
         />
       </div>
       <div className={classes.action}>
-        <button>Change Password</button>
+        <Button type="submit" variant="contained">
+          Change Password
+        </Button>
       </div>
     </form>
   );

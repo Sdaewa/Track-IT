@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
+import { Delete } from "@material-ui/icons";
 
 import classes from "./Job.module.css";
 
@@ -14,12 +15,16 @@ const Job = (props) => {
       <div>
         <h1>{props.company}</h1>
       </div>
-      <Link className="btn" to={`/jobs/${props.id}`}>
+      <Button variant="contained" className="btn" href={`/jobs/${props.id}`}>
         More Details
-      </Link>
-      <button className="btn" onClick={deleteHandler}>
+      </Button>
+      <Button
+        startIcon={<Delete />}
+        variant="contained"
+        className="btn"
+        onClick={deleteHandler}>
         Delete
-      </button>
+      </Button>
     </li>
   );
 };
