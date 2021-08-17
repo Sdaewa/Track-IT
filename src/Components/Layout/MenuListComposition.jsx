@@ -111,7 +111,9 @@ const MenuListComposition = () => {
                       </Link>
                     )}
                     {isLoggedIn && (
-                      <Link style={{ color: "black", textDecoration: "none" }}>
+                      <Link
+                        to="/"
+                        style={{ color: "black", textDecoration: "none" }}>
                         <MenuItem onClick={handleClose && logoutHandler}>
                           Logout
                         </MenuItem>

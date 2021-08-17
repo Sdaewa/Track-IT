@@ -1,5 +1,4 @@
-import React from "react";
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 
 import classes from "./Layout.module.css";
 import Navbar from "./Navbar";

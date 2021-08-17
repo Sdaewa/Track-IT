@@ -68,7 +68,7 @@ const MobileMenu = () => {
             </Link>
           )}
           {isLoggedIn && (
-            <Link style={{ color: "black", textDecoration: "none" }}>
+            <Link to="/" style={{ color: "black", textDecoration: "none" }}>
               <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </Link>
           )}
