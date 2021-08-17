@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { IconButton, MenuItem, Menu } from "@material-ui/core";
 import MoreIcon from "@material-ui/icons/MoreVert";
@@ -10,8 +10,8 @@ const MobileMenu = () => {
   const history = useHistory();
   const isLoggedIn = authCtx.isLoggedIn;
 
-  const [open, setOpen] = React.useState(true);
-  const anchorRef = React.useRef(null);
+  const [open, setOpen] = useState(true);
+  const anchorRef = useRef(null);
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
