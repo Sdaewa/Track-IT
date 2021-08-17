@@ -1,12 +1,17 @@
 import React from "react";
-import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import { Grid } from "@material-ui/core";
 
 import classes from "./FullJobDetails.module.css";
 
 const FullJobDetails = (props) => {
   return (
-    <Fragment>
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center">
       <figure className={classes.job}>
         <h1>{props.company}</h1>
         <h1>{props.role}</h1>
@@ -16,7 +21,7 @@ const FullJobDetails = (props) => {
           Back
         </Link>
       </figure>
-    </Fragment>
+    </Grid>
   );
 };
 
