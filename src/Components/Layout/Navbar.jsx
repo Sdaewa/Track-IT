@@ -63,35 +63,25 @@
 
 // export default MainNavigation;
 
-import React, { useContext } from "react";
-import { Link, NavLink, useHistory } from "react-router-dom";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import MenuIcon from "@material-ui/icons/Menu";
+import React from "react";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  MenuItem,
+  Menu,
+} from "@material-ui/core";
+// import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 
-import AuthContext from "../../store/auth-context";
-import MenuList from "./MenuList";
+import MenuList from "./MenuListComposition";
 import useStyles from "./stylesNavbar";
 
 const Navbar = () => {
-  const authCtx = useContext(AuthContext);
-  const history = useHistory();
-
-  const isLoggedIn = authCtx.isLoggedIn;
-
-  const logoutHandler = () => {
-    authCtx.logout();
-    history.push("/");
-  };
-
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -129,45 +119,6 @@ const Navbar = () => {
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
-  );
-
-  const menu = (
-    // <ul>
-    //   {!isLoggedIn && (
-    //     <li>
-    //       <NavLink activeClassName={classes.active} to="/auth">
-    //         Login
-    //       </NavLink>
-    //     </li>
-    //   )}
-    //   {isLoggedIn && (
-    //     <li>
-    //       <NavLink activeClassName={classes.active} to="/profile">
-    //         Profile
-    //       </NavLink>
-    //     </li>
-    //   )}
-    //   {isLoggedIn && (
-    //     <li>
-    //       <NavLink activeClassName={classes.active} to="/new-job">
-    //         Add Job
-    //       </NavLink>
-    //     </li>
-    //   )}
-    //   {isLoggedIn && (
-    //     <li>
-    //       <NavLink activeClassName={classes.active} to="/jobs">
-    //         Your Jobs
-    //       </NavLink>
-    //     </li>
-    //   )}
-    //   {isLoggedIn && (
-    //     <li>
-    //       <button onClick={logoutHandler}>Logout</button>
-    //     </li>
-    //   )}
-    // </ul>
-    <MenuList />
   );
 
   const mobileMenuId = "primary-search-account-menu-mobile";
@@ -236,7 +187,7 @@ const Navbar = () => {
               color="inherit">
               <AccountCircle />
             </IconButton> */}
-            {menu}
+            <MenuList />
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
