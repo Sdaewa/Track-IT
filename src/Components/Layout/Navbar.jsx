@@ -1,208 +1,112 @@
-// import React, { useContext } from "react";
-// import { Link, NavLink, useHistory } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { AppBar, Toolbar, Typography, MenuItem, Menu } from "@material-ui/core";
 
 // import AuthContext from "../../store/auth-context";
-// import classes from "./MainNavigation.module.css";
-
-// const MainNavigation = () => {
-//   const authCtx = useContext(AuthContext);
-//   const history = useHistory();
-
-//   const isLoggedIn = authCtx.isLoggedIn;
-
-//   const logoutHandler = () => {
-//     authCtx.logout();
-//     history.push("/");
-//   };
-
-//   return (
-//     <header className={classes.header}>
-//       <Link to="/">
-//         <div className={classes.logo}>Track IT</div>
-//       </Link>
-//       <nav className={classes.nav}>
-//         <ul>
-//           {!isLoggedIn && (
-//             <li>
-//               <NavLink activeClassName={classes.active} to="/auth">
-//                 Login
-//               </NavLink>
-//             </li>
-//           )}
-//           {isLoggedIn && (
-//             <li>
-//               <NavLink activeClassName={classes.active} to="/profile">
-//                 Profile
-//               </NavLink>
-//             </li>
-//           )}
-//           {isLoggedIn && (
-//             <li>
-//               <NavLink activeClassName={classes.active} to="/new-job">
-//                 Add Job
-//               </NavLink>
-//             </li>
-//           )}
-//           {isLoggedIn && (
-//             <li>
-//               <NavLink activeClassName={classes.active} to="/jobs">
-//                 Your Jobs
-//               </NavLink>
-//             </li>
-//           )}
-//           {isLoggedIn && (
-//             <li>
-//               <button onClick={logoutHandler}>Logout</button>
-//             </li>
-//           )}
-//         </ul>
-//       </nav>
-//     </header>
-//   );
-// };
-
-// export default MainNavigation;
-
-import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  MenuItem,
-  Menu,
-} from "@material-ui/core";
-// import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import MoreIcon from "@material-ui/icons/MoreVert";
-
 import MenuList from "./MenuListComposition";
+import MobileMenu from "./MobileMenu";
 import useStyles from "./stylesNavbar";
 
 const Navbar = () => {
+  // const authCtx = useContext(AuthContext);
+  // const history = useHistory();
+  // const isLoggedIn = authCtx.isLoggedIn;
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  // const [open, setOpen] = React.useState(false);
+  // const anchorRef = React.useRef(null);
+  // const [setAnchorEl] = useState(null);
+  // const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  // const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleProfileMenuOpen = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+  // const logoutHandler = () => {
+  //   authCtx.logout();
+  //   history.push("/");
+  // };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
+  // const handleClose = (event) => {
+  //   if (anchorRef.current && anchorRef.current.contains(event.target)) {
+  //     return;
+  //   }
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
+  //   setOpen(false);
+  // };
 
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+  // const handleMobileMenuClose = () => {
+  //   setMobileMoreAnchorEl(null);
+  // };
 
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}>
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
+  // const handleMobileMenuOpen = (event) => {
+  //   setMobileMoreAnchorEl(event.currentTarget);
+  // };
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}>
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <MailIcon />
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <NotificationsIcon />
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit">
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
+  // const mobileMenuId = "primary-search-account-menu-mobile";
+  // const renderMobileMenu = (
+  //   <>
+  //     <div>
+  //       {!isLoggedIn && (
+  //         <div>
+  //           <Link to="/auth" style={{ color: "white", textDecoration: "none" }}>
+  //             <MenuItem onClick={handleClose}>Login</MenuItem>
+  //           </Link>
+  //         </div>
+  //       )}
+  //     </div>
+  //     <Menu
+  //       anchorEl={mobileMoreAnchorEl}
+  //       anchorOrigin={{ vertical: "top", horizontal: "right" }}
+  //       id={mobileMenuId}
+  //       keepMounted
+  //       transformOrigin={{ vertical: "top", horizontal: "right" }}
+  //       open={isMobileMenuOpen}
+  //       onClose={handleMobileMenuClose}>
+  //       {isLoggedIn && (
+  //         <Link
+  //           to="/new-job"
+  //           style={{ color: "black", textDecoration: "none" }}>
+  //           <MenuItem onClick={handleClose}>Add job</MenuItem>
+  //         </Link>
+  //       )}
+  //       {isLoggedIn && (
+  //         <Link to="/jobs" style={{ color: "black", textDecoration: "none" }}>
+  //           <MenuItem onClick={handleClose}>Jobs</MenuItem>
+  //         </Link>
+  //       )}
+  //       {isLoggedIn && (
+  //         <Link
+  //           to="/profile"
+  //           style={{ color: "black", textDecoration: "none" }}>
+  //           <MenuItem onClick={handleClose}>Profile</MenuItem>
+  //         </Link>
+  //       )}
+  //       {isLoggedIn && (
+  //         <Link style={{ color: "black", textDecoration: "none" }}>
+  //           <MenuItem onClick={handleClose && logoutHandler}>Logout</MenuItem>
+  //         </Link>
+  //       )}
+  //     </Menu>
+  //   </>
+  // );
 
   return (
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer">
-            <MenuIcon />
-          </IconButton> */}
           <Typography className={classes.title} variant="h6" noWrap>
             Track IT
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            {/* <IconButton aria-label="show 4 new mails" color="inherit">
-              <MailIcon />
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <NotificationsIcon />
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit">
-              <AccountCircle />
-            </IconButton> */}
             <MenuList />
           </div>
           <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit">
-              <MoreIcon />
-            </IconButton>
+            <MobileMenu />
           </div>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
     </div>
   );
 };
