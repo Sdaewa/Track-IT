@@ -1,18 +1,19 @@
 import React from "react";
-// import { Button } from "@material-ui/core";
-// import { Delete } from "@material-ui/icons";
+import { Button } from "@material-ui/core";
+import { Delete } from "@material-ui/icons";
 import { Grid } from "@material-ui/core";
 import { Card } from "@material-ui/core";
 import { CardActions } from "@material-ui/core";
 import { CardContent } from "@material-ui/core";
-// import CssBaseline from "@material-ui/core/CssBaseline";
-// import { makeStyles } from "@material-ui/core/styles";
-// import Container from "@material-ui/core/Container";
-// import Link from "@material-ui/core/Link";
 
 import classes from "./Job.module.css";
 
 const Job = (props) => {
+  const deleteHandler = (event) => {
+    event.preventDefault();
+    props.onDelete(props.id);
+  };
+
   return (
     <Grid item>
       <Card variant="outlined">
@@ -24,7 +25,23 @@ const Job = (props) => {
             </div>
           </li>
         </CardContent>
-        <CardActions></CardActions>
+        <CardActions>
+          <Button
+            variant="contained"
+            className="btn"
+            color="primary"
+            href={`/jobs/${props.id}`}>
+            Details
+          </Button>
+          <Button
+            startIcon={<Delete />}
+            variant="contained"
+            className="btn"
+            color="secondary"
+            onClick={deleteHandler}>
+            Delete
+          </Button>
+        </CardActions>
       </Card>
     </Grid>
   );
