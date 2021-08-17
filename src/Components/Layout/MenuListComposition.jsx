@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {
   Button,
@@ -16,8 +16,8 @@ const MenuListComposition = () => {
   const authCtx = useContext(AuthContext);
   const history = useHistory();
   const isLoggedIn = authCtx.isLoggedIn;
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
+  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -44,7 +44,7 @@ const MenuListComposition = () => {
   };
 
   // return focus to the button when we transitioned from !open -> open
-  const prevOpen = React.useRef(open);
+  const prevOpen = useRef(open);
   useEffect(() => {
     if (prevOpen.current === true && open === false) {
       anchorRef.current.focus();

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { IconButton, MenuItem, Menu } from "@material-ui/core";
 import MoreIcon from "@material-ui/icons/MoreVert";
@@ -10,9 +10,6 @@ const MobileMenu = () => {
   const history = useHistory();
   const isLoggedIn = authCtx.isLoggedIn;
 
-  const [open, setOpen] = useState(true);
-  const anchorRef = useRef(null);
-
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -20,14 +17,6 @@ const MobileMenu = () => {
   const logoutHandler = () => {
     authCtx.logout();
     history.push("/");
-  };
-
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen(false);
   };
 
   const handleMobileMenuClose = () => {
@@ -45,7 +34,7 @@ const MobileMenu = () => {
         {!isLoggedIn && (
           <div>
             <Link to="/auth" style={{ color: "white", textDecoration: "none" }}>
-              <MenuItem onClick={handleClose}>Login</MenuItem>
+              <MenuItem>Login</MenuItem>
             </Link>
           </div>
         )}
@@ -63,24 +52,24 @@ const MobileMenu = () => {
             <Link
               to="/new-job"
               style={{ color: "black", textDecoration: "none" }}>
-              <MenuItem onClick={handleClose}>Add job</MenuItem>
+              <MenuItem>Add job</MenuItem>
             </Link>
           )}
           {isLoggedIn && (
             <Link to="/jobs" style={{ color: "black", textDecoration: "none" }}>
-              <MenuItem onClick={handleClose}>Jobs</MenuItem>
+              <MenuItem>Jobs</MenuItem>
             </Link>
           )}
           {isLoggedIn && (
             <Link
               to="/profile"
               style={{ color: "black", textDecoration: "none" }}>
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
+              <MenuItem>Profile</MenuItem>
             </Link>
           )}
           {isLoggedIn && (
             <Link style={{ color: "black", textDecoration: "none" }}>
-              <MenuItem onClick={handleClose && logoutHandler}>Logout</MenuItem>
+              <MenuItem onClick={logoutHandler}>Logout</MenuItem>
             </Link>
           )}
         </Menu>
