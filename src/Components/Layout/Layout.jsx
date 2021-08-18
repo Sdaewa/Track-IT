@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { ReactComponent as Background } from "../../img/background.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,19 +27,22 @@ const Layout = (props) => {
       <header>
         <Navbar />
       </header>
-      <div className={classes.root}>
-        <Container
-          component="main"
-          className={classes.main}
-          style={{ background: "grey" }}
-          maxWidth="md">
-          <Grid container spacing={0} justifyContent="center">
-            <Grid item>
-              <main>{props.children}</main>
+      <Container class="background">
+        {/* <Background /> */}
+        <div className={classes.root}>
+          <Container
+            component="main"
+            className={classes.main}
+            style={{ background: "grey" }}
+            maxWidth="md">
+            <Grid container spacing={0} justifyContent="center">
+              <Grid item>
+                <main>{props.children}</main>
+              </Grid>
             </Grid>
-          </Grid>
-        </Container>
-      </div>
+          </Container>
+        </div>
+      </Container>
       <footer>
         <Footer />
       </footer>
