@@ -4,7 +4,6 @@ opacity: 0.8;
 background-image: radial-gradient(#272727 0.5px, transparent 0.5px);
 background-size: 10px 10px;
 z-index: -1; */
-
   background-image: url(./img/background.svg);
 
 }

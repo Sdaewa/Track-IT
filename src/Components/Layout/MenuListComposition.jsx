@@ -8,6 +8,7 @@ import {
   Popper,
   MenuItem,
   MenuList,
+  CssBaseline,
 } from "@material-ui/core";
 
 import AuthContext from "../../store/auth-context";
@@ -55,6 +56,7 @@ const MenuListComposition = () => {
 
   return (
     <>
+      <CssBaseline />
       {!isLoggedIn && (
         <div>
           <Link to="/auth" style={{ color: "white", textDecoration: "none" }}>
@@ -67,6 +69,7 @@ const MenuListComposition = () => {
           ref={anchorRef}
           aria-controls={open ? "menu-list-grow" : undefined}
           aria-haspopup="true"
+          style={{ color: "white" }}
           onClick={handleToggle}>
           MENU
         </Button>

@@ -5,13 +5,13 @@ import { ReactComponent as HomeImg } from "../img/homeImg.svg";
 
 const HomePage = () => {
   return (
-    <Grid container>
+    <Grid container xs={12} sm={6} md={4}>
       <Grid item>
         <Typography variant="h2" align="center">
           Welcome to Track IT
         </Typography>
         <br />
-        <HomeImg />
+        <HomeImg style={{ transform: "scale(0.8)" }} />
         <Typography variant="h4" align="center">
           Keep track of all the job applications in one place
         </Typography>

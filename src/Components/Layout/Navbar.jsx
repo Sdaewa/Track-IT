@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AppBar, Toolbar, Typography, MenuItem } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  CssBaseline,
+  MenuItem,
+} from "@material-ui/core";
 
 import MenuList from "./MenuListComposition";
 import MobileMenu from "./MobileMenu";
@@ -11,6 +17,7 @@ const Navbar = () => {
 
   return (
     <div className={classes.grow}>
+      <CssBaseline />
       <AppBar position="static">
         <Toolbar>
           <Link to="/" style={{ color: "black", textDecoration: "none" }}>
