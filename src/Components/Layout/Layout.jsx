@@ -1,20 +1,46 @@
 import React from "react";
-import { CssBaseline, Container } from "@material-ui/core";
+import { CssBaseline, Container, Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Navbar from "./Navbar";
-// import Footer from "./Footer";
+import Footer from "./Footer";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
+  },
+  main: {
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(2),
+  },
+}));
 
 const Layout = (props) => {
+  const classes = useStyles();
   return (
     <>
-      <CssBaseline />
-      <div className="header">
-        <Navbar />
+      <div className={classes.root}>
+        <CssBaseline />
+        <header>
+          <Navbar />
+        </header>
+        <Container
+          component="main"
+          className={classes.main}
+          style={{ background: "grey" }}
+          maxWidth="md">
+          <Grid container spacing={0} justifyContent="center">
+            <Grid item>
+              <main>{props.children}</main>
+            </Grid>
+          </Grid>
+        </Container>
       </div>
-      <main>
-        <Container>{props.children}</Container>
-      </main>
-      <footer>{/* <Footer /> */}</footer>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };

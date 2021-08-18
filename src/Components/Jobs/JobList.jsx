@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Typography,
-  CssBaseline,
+  // CssBaseline,
   Grid,
   Container,
   IconButton,
@@ -9,16 +9,16 @@ import {
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 import Job from "./Job";
-import useStyles from "./stylesJobList";
+// import useStyles from "./stylesJobList";
 
 const JobList = (props) => {
   const jobs = props.jobs;
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <>
-      <CssBaseline />
-      <div className={classes.container}>
+      {/* <CssBaseline /> */}
+      <div>
         <Container maxWidth="sm">
           <Typography
             variant="h2"
@@ -32,27 +32,29 @@ const JobList = (props) => {
       <div>
         <Grid container spacing={0} justifyContent="center">
           <Grid item>
-            <IconButton className={classes.iconButton} href="/new-job">
+            <IconButton
+              style={{ margin: "16px", padding: "24px" }}
+              href="/new-job">
               <AddCircleIcon color="primary" fontSize="medium" />
             </IconButton>
           </Grid>
         </Grid>
       </div>
-      <Container className={classes.cardGrid} maxWidth="md">
-        <Grid container spacing={2}>
-          {jobs.map((job) => (
-            <Job
-              key={job.id}
-              id={job.id}
-              company={job.company}
-              role={job.role}
-              techStack={job.techStack}
-              appliedDate={job.appliedDate}
-              onDelete={props.onDelete}
-            />
-          ))}
-        </Grid>
-      </Container>
+      {/* <Container className={classes.cardGrid} maxWidth="md"> */}
+      <Grid container spacing={2}>
+        {jobs.map((job) => (
+          <Job
+            key={job.id}
+            id={job.id}
+            company={job.company}
+            role={job.role}
+            techStack={job.techStack}
+            appliedDate={job.appliedDate}
+            onDelete={props.onDelete}
+          />
+        ))}
+      </Grid>
+      {/* </Container> */}
     </>
   );
 };
