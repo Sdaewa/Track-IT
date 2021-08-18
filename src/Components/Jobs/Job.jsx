@@ -29,12 +29,14 @@ const Job = (props) => {
             title="Image title"
           />
           <CardContent className={classes.cardContent}>
-            <Typography variant="h5" gutterBottom>
+            <Typography fontSize="" align="center" variant="h5" gutterBottom>
               {props.company}
             </Typography>
-            <Typography>{props.day}</Typography>
+            <Typography align="center" variant="subtitle2">
+              {props.appliedDate}
+            </Typography>
           </CardContent>
-          <CardActions>
+          <CardActions style={{ justifyContent: "center" }}>
             <Button
               variant="contained"
               color="primary"

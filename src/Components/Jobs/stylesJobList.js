@@ -2,8 +2,8 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    backgroundColor: "grey",
-    padding: theme.spacing(8, 0, 6),
+    // backgroundColor: "grey",
+    padding: "24px 16px",
   },
   iconButton: {
     margin: "16px",

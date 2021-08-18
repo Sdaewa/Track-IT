@@ -1,9 +1,7 @@
 import React from "react";
 
-import StartingPageContent from "../Components/Layout/StartingPageContent";
-
 const HomePage = () => {
-  return <StartingPageContent />;
+  return <h1>Homepae</h1>;
 };
 
 export default HomePage;

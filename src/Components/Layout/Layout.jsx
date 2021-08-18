@@ -1,14 +1,21 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { CssBaseline, Container } from "@material-ui/core";
 
-import classes from "./Layout.module.css";
 import Navbar from "./Navbar";
+// import Footer from "./Footer";
 
 const Layout = (props) => {
   return (
-    <Fragment>
-      <Navbar />
-      <main className={classes.main}>{props.children}</main>
-    </Fragment>
+    <>
+      <CssBaseline />
+      <div className="header">
+        <Navbar />
+      </div>
+      <main>
+        <Container>{props.children}</Container>
+      </main>
+      <footer>{/* <Footer /> */}</footer>
+    </>
   );
 };
 
