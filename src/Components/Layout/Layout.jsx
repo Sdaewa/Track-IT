@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { ReactComponent as Background } from "../../img/background.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -13,9 +12,10 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
   },
   main: {
-    marginTop: theme.spacing(12),
-    marginBottom: theme.spacing(2),
-    padding: theme.spacing(20),
+    marginTop: theme.spacing(10),
+    marginBottom: theme.spacing(15),
+    paddingTop: theme.spacing(10),
+    paddingBottom: theme.spacing(15),
   },
 }));
 
@@ -24,25 +24,18 @@ const Layout = (props) => {
   return (
     <>
       <CssBaseline />
-      <header>
+      <header style={{ zIndex: "1" }}>
         <Navbar />
       </header>
-      <Container class="background">
-        {/* <Background /> */}
-        <div className={classes.root}>
-          <Container
-            component="main"
-            className={classes.main}
-            style={{ background: "grey" }}
-            maxWidth="md">
-            <Grid container spacing={0} justifyContent="center">
-              <Grid item>
-                <main>{props.children}</main>
-              </Grid>
+      <div className={classes.root}>
+        <Container component="main" className={classes.main} maxWidth="md">
+          <Grid container spacing={0} justifyContent="center">
+            <Grid item>
+              <main>{props.children}</main>
             </Grid>
-          </Container>
-        </div>
-      </Container>
+          </Grid>
+        </Container>
+      </div>
       <footer>
         <Footer />
       </footer>

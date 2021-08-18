@@ -1,4 +1,4 @@
-/* .auth {
+.auth {
   margin: 3rem auto;
   width: 95%;
   max-width: 25rem;
@@ -27,6 +27,7 @@
 }
 
 .control input {
+  z-index: 1;
   font: inherit;
   background-color: #f1e1fc;
   color: #38015c;
@@ -70,4 +71,4 @@
 .actions .toggle:hover {
   background-color: transparent;
   color: #ae82cc;
-} */
+}
