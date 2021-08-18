@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   main: {
     marginTop: theme.spacing(8),
     marginBottom: theme.spacing(2),
+    padding: theme.spacing(20),
   },
 }));
 
@@ -21,11 +22,11 @@ const Layout = (props) => {
   const classes = useStyles();
   return (
     <>
+      <CssBaseline />
+      <header>
+        <Navbar />
+      </header>
       <div className={classes.root}>
-        <CssBaseline />
-        <header>
-          <Navbar />
-        </header>
         <Container
           component="main"
           className={classes.main}

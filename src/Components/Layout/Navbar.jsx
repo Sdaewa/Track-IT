@@ -1,6 +1,6 @@
 import React from "react";
-
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { AppBar, Toolbar, Typography, MenuItem } from "@material-ui/core";
 
 import MenuList from "./MenuListComposition";
 import MobileMenu from "./MobileMenu";
@@ -13,9 +13,14 @@ const Navbar = () => {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Track IT
-          </Typography>
+          <Link to="/" style={{ color: "black", textDecoration: "none" }}>
+            <MenuItem>
+              <Typography className={classes.title} variant="h6" noWrap>
+                Track IT
+              </Typography>
+            </MenuItem>
+          </Link>
+
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <MenuList />
