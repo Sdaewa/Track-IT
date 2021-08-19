@@ -1,15 +1,30 @@
-import React from "react";
-import { Fragment, useRef, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import { Prompt } from "react-router-dom";
-import { Button } from "@material-ui/core";
+
+import { Button, TextField, Grid } from "@material-ui/core";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker,
+} from "@material-ui/pickers";
+import "date-fns";
+import DateFnsUtils from "@date-io/date-fns";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
-import classes from "./JobForm.module.css";
+import myClasses from "./JobForm.module.css";
 
 const isEmpty = (value) => value.trim() === "";
 
+const useStyles = makeStyles((theme) => ({
+  margin: {
+    margin: theme.spacing(1),
+  },
+}));
+
 const JobForm = (props) => {
+  const classes = useStyles();
   const [isEntering, setIsEntering] = useState(false);
   const [formInputsValidity, setFormInputsValidity] = useState({
     company: true,
@@ -17,6 +32,13 @@ const JobForm = (props) => {
     techStack: true,
     appliedDate: true,
   });
+  const [selectedDate, setSelectedDate] = useState(
+    new Date("2014-08-18T21:11:54")
+  );
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
 
   const companyRef = useRef();
   const roleRef = useRef();
@@ -57,17 +79,17 @@ const JobForm = (props) => {
       return;
     }
   }
-  const companyControlClasses = `${classes.control} ${
-    formInputsValidity.company ? "" : classes.invalid
+  const companyControlClasses = `${myClasses.control} ${
+    formInputsValidity.company ? "" : myClasses.invalid
   }`;
-  const roleControlClasses = `${classes.control} ${
-    formInputsValidity.role ? "" : classes.invalid
+  const roleControlClasses = `${myClasses.control} ${
+    formInputsValidity.role ? "" : myClasses.invalid
   }`;
-  const techStackCodeControlClasses = `${classes.control} ${
-    formInputsValidity.techStack ? "" : classes.invalid
+  const techStackControlClasses = `${myClasses.control} ${
+    formInputsValidity.techStack ? "" : myClasses.invalid
   }`;
-  const appliedDateControlClasses = `${classes.control} ${
-    formInputsValidity.appliedDate ? "" : classes.invalid
+  const appliedDateControlClasses = `${myClasses.control} ${
+    formInputsValidity.appliedDate ? "" : myClasses.invalid
   }`;
 
   const finishEnteringHandler = () => {
@@ -96,8 +118,72 @@ const JobForm = (props) => {
               <LoadingSpinner />
             </div>
           )}
+          <div className={classes.margin && companyControlClasses}>
+            <Grid container spacing={1} alignItems="flex-end">
+              <Grid item>
+                <AccountCircle />
+              </Grid>
+              <Grid item>
+                <TextField
+                  id="input-with-icon-grid"
+                  label="Company"
+                  inputRef={companyRef}
+                />
+                {!formInputsValidity.company && <p>Please enter a company</p>}
+              </Grid>
+            </Grid>
+          </div>
+          <div className={classes.margin && roleControlClasses}>
+            <Grid container spacing={1} alignItems="flex-end">
+              <Grid item>
+                <AccountCircle />
+              </Grid>
+              <Grid item>
+                <TextField
+                  id="input-with-icon-grid"
+                  label="Role"
+                  inputRef={roleRef}
+                />
+                {!formInputsValidity.role && <p>Please enter a role</p>}
+              </Grid>
+            </Grid>
+          </div>
+          <div className={classes.margin && techStackControlClasses}>
+            <Grid container spacing={1} alignItems="flex-end">
+              <Grid item>
+                <AccountCircle />
+              </Grid>
+              <Grid item>
+                <TextField
+                  id="input-with-icon-grid"
+                  label="Tech Stack"
+                  inputRef={techStackRef}
+                />
+                {!formInputsValidity.techStack && (
+                  <p>Please enter the tech stack</p>
+                )}
+              </Grid>
+            </Grid>
+          </div>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <Grid container justifyContent="space-around">
+              <KeyboardDatePicker
+                className={appliedDateControlClasses}
+                margin="normal"
+                id="date-picker-dialog"
+                label="Date picker dialog"
+                format="MM/dd/yyyy"
+                value={selectedDate}
+                inputRef={appliedDateRef}
+                onChange={handleDateChange}
+                KeyboardButtonProps={{
+                  "aria-label": "change date",
+                }}
+              />
+            </Grid>
+          </MuiPickersUtilsProvider>
 
-          <div className={companyControlClasses}>
+          {/* <div className={companyControlClasses}>
             <label htmlFor="company">Company</label>
             <input type="text" id="company" ref={companyRef} />
             {!formInputsValidity.company && <p>Please enter a company</p>}
@@ -118,7 +204,7 @@ const JobForm = (props) => {
             <label htmlFor="appliedDate">Date</label>
             <input type="date" id="appliedDate" ref={appliedDateRef}></input>
             {!formInputsValidity.appliedDate && <p>Please enter a date</p>}
-          </div>
+          </div> */}
           <div className={classes.actions}>
             <Button
               type="submit"
@@ -135,3 +221,53 @@ const JobForm = (props) => {
 };
 
 export default JobForm;
+
+// export default function MaterialUIPickers() {
+//   // The first commit of Material-UI
+// const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+
+// const handleDateChange = (date) => {
+//   setSelectedDate(date);
+// };
+
+//   return (
+//     <MuiPickersUtilsProvider utils={DateFnsUtils}>
+//       <Grid container justifyContent="space-around">
+//         <KeyboardDatePicker
+//           disableToolbar
+//           variant="inline"
+//           format="MM/dd/yyyy"
+//           margin="normal"
+//           id="date-picker-inline"
+//           label="Date picker inline"
+//           value={selectedDate}
+//           onChange={handleDateChange}
+//           KeyboardButtonProps={{
+//             'aria-label': 'change date',
+//           }}
+//         />
+// <KeyboardDatePicker
+//   margin="normal"
+//   id="date-picker-dialog"
+//   label="Date picker dialog"
+//   format="MM/dd/yyyy"
+//   value={selectedDate}
+//   onChange={handleDateChange}
+//   KeyboardButtonProps={{
+//     'aria-label': 'change date',
+//   }}
+// />
+//         <KeyboardTimePicker
+//           margin="normal"
+//           id="time-picker"
+//           label="Time picker"
+//           value={selectedDate}
+//           onChange={handleDateChange}
+//           KeyboardButtonProps={{
+//             'aria-label': 'change time',
+//           }}
+//         />
+//       </Grid>
+//     </MuiPickersUtilsProvider>
+//   );
+// }

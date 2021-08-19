@@ -27,7 +27,6 @@ const Navbar = () => {
               </Typography>
             </MenuItem>
           </Link>
-
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <MenuList />

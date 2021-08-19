@@ -8,8 +8,6 @@ import {
   Popper,
   MenuItem,
   MenuList,
-  Box,
-  IconButton,
   CssBaseline,
 } from "@material-ui/core";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";

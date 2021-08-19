@@ -121,7 +121,6 @@ const AuthForm = () => {
             label="Email Address"
             htmlFor="email"
             name="email"
-            autoFocus
             inputRef={emailInputRef}
           />
           <TextField

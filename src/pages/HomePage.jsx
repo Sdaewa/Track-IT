@@ -5,7 +5,7 @@ import { ReactComponent as HomeImg } from "../img/homeImg.svg";
 
 const HomePage = () => {
   return (
-    <Grid container xs={12} sm={6} md={4}>
+    <Grid container>
       <Grid item>
         <Typography variant="h2" align="center">
           Welcome to Track IT
