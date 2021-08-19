@@ -1,11 +1,12 @@
+import { Typography } from "@material-ui/core";
 import React from "react";
-
-import classes from "./Comment.module.css";
 
 const Comment = (props) => {
   return (
-    <li className={classes.comment}>
-      <p>{props.text}</p>
+    <li style={{ listStyle: "none" }}>
+      <Typography variant="subtitle1" paragraph style={{ padding: "10px" }}>
+        {props.text}
+      </Typography>
     </li>
   );
 };

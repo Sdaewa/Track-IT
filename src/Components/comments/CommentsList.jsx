@@ -1,15 +1,19 @@
 import React from "react";
+import { Grid, Typography } from "@material-ui/core";
 
 import Comment from "./Comment";
-import classes from "./CommentsList.module.css";
 
 const CommentsList = (props) => {
   return (
-    <ul className={classes.comments}>
-      {props.comments.map((comment) => (
-        <Comment key={comment.id} text={comment.text} />
-      ))}
-    </ul>
+    <Grid container wrap="nowrap" spacing={2}>
+      <Grid justifyContent="right" item xs zeroMinWidth>
+        <Typography style={{ textAlign: "left" }}>
+          {props.comments.map((comment) => (
+            <Comment key={comment.id} text={comment.text} />
+          ))}
+        </Typography>
+      </Grid>
+    </Grid>
   );
 };
 

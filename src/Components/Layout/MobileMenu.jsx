@@ -62,7 +62,7 @@ const MobileMenu = () => {
         )}
         {isLoggedIn && (
           <Link
-            to="/profile"
+            to="/credentials"
             style={{ color: "black", textDecoration: "none" }}>
             <MenuItem>Credentials</MenuItem>
           </Link>

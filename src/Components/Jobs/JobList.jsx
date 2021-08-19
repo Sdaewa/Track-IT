@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Typography,
-  // CssBaseline,
+  Divider,
   Grid,
   Container,
   IconButton,
@@ -10,15 +10,12 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 import Job from "./Job";
 import Card from "../UI/Card";
-// import useStyles from "./stylesJobList";
 
 const JobList = (props) => {
   const jobs = props.jobs;
-  // const classes = useStyles();
 
   return (
     <Card>
-      {/* <CssBaseline /> */}
       <div>
         <Container maxWidth="sm">
           <Typography
@@ -27,6 +24,7 @@ const JobList = (props) => {
             gutterBottom
             color="textPrimary">
             Job Applications
+            <Divider variant="fullWidth" style={{ margin: "30px 0" }} />
           </Typography>
         </Container>
       </div>
@@ -41,7 +39,7 @@ const JobList = (props) => {
           </Grid>
         </Grid>
       </div>
-      {/* <Container className={classes.cardGrid} maxWidth="md"> */}
+
       <Grid container spacing={2}>
         {jobs.map((job) => (
           <Job
@@ -55,7 +53,6 @@ const JobList = (props) => {
           />
         ))}
       </Grid>
-      {/* </Container> */}
     </Card>
   );
 };

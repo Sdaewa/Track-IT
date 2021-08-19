@@ -110,7 +110,7 @@ const MenuListComposition = () => {
                     )}
                     {isLoggedIn && (
                       <Link
-                        to="/profile"
+                        to="/credentials"
                         style={{ color: "black", textDecoration: "none" }}>
                         <MenuItem onClick={handleClose}>Credentials</MenuItem>
                       </Link>

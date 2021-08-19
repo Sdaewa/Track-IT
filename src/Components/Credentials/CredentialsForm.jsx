@@ -87,24 +87,10 @@ const CredentialsForm = () => {
           minLength="7"
           inputRef={newPasswordInputRef}
         />
-        {/* <label htmlFor="new-email">New Email</label>
-        <input
-          type="password"
-          id="new-password"
-          ref={newEmailInputRef}
-        />
-      </div>
-      <div className={classes.control}>
-        <label htmlFor="new-password">New Password</label>
-        <input
-          type="password"
-          id="new-password"
-          ref={newPasswordInputRef}
-        /> */}
       </div>
       <Box textAlign="center" padding="10px">
         <Button color="primary" type="submit" variant="contained">
-          Change Password
+          Change
         </Button>
       </Box>
     </form>
