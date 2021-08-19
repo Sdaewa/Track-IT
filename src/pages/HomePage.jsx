@@ -2,21 +2,24 @@ import React from "react";
 import { Typography, Grid } from "@material-ui/core";
 
 import { ReactComponent as HomeImg } from "../img/homeImg.svg";
+import Card from "../Components/UI/Card";
 
 const HomePage = () => {
   return (
-    <Grid container>
-      <Grid item>
-        <Typography variant="h2" align="center">
-          Welcome to Track IT
-        </Typography>
-        <br />
-        <HomeImg style={{ transform: "scale(0.8)" }} />
-        <Typography variant="h4" align="center">
-          Keep track of your job applications in one place
-        </Typography>
+    <Card>
+      <Grid container>
+        <Grid item>
+          <Typography variant="h2" align="center">
+            Welcome to Track IT
+          </Typography>
+          <br />
+          <HomeImg style={{ transform: "scale(0.8)" }} />
+          <Typography variant="h4" align="center" gutterBottom>
+            Keep track of your job applications in one place
+          </Typography>
+        </Grid>
       </Grid>
-    </Grid>
+    </Card>
   );
 };
 

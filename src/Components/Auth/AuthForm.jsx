@@ -12,6 +12,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import AuthContext from "../../store/auth-context";
+import Card from "../UI/Card";
 import { URL_SIGN_UP } from "../../Config/config";
 import { URL_SIGN_IN } from "../../Config/config";
 

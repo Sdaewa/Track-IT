@@ -9,6 +9,7 @@ import {
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 import Job from "./Job";
+import Card from "../UI/Card";
 // import useStyles from "./stylesJobList";
 
 const JobList = (props) => {
@@ -16,7 +17,7 @@ const JobList = (props) => {
   // const classes = useStyles();
 
   return (
-    <>
+    <Card>
       {/* <CssBaseline /> */}
       <div>
         <Container maxWidth="sm">
@@ -55,7 +56,7 @@ const JobList = (props) => {
         ))}
       </Grid>
       {/* </Container> */}
-    </>
+    </Card>
   );
 };
 
