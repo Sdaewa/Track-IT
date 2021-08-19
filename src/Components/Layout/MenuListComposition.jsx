@@ -112,7 +112,7 @@ const MenuListComposition = () => {
                       <Link
                         to="/profile"
                         style={{ color: "black", textDecoration: "none" }}>
-                        <MenuItem onClick={handleClose}>Profile</MenuItem>
+                        <MenuItem onClick={handleClose}>Credentials</MenuItem>
                       </Link>
                     )}
                     {isLoggedIn && (

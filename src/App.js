@@ -9,7 +9,7 @@ import AuthContext from "./store/auth-context";
 const AllJobsPage = React.lazy(() => import("./pages/AllJobsPage"));
 const JobDetailsPage = React.lazy(() => import("./pages/JobDetailsPage"));
 const NewJobPage = React.lazy(() => import("./pages/NewJobPage"));
-const ProfilePage = React.lazy(() => import("./pages/ProfilePage"));
+const CredentialsPage = React.lazy(() => import("./pages/CredentialsPage"));
 const AuthPage = React.lazy(() => import("./pages/AuthPage"));
 const NotFoundPage = React.lazy(() => import("./pages/NotFoundPage"));
 
@@ -32,8 +32,8 @@ function App() {
             <AuthPage />
           </Route>
           {authCtx.isLoggedIn && (
-            <Route path="/profile">
-              <ProfilePage />
+            <Route path="/credentials">
+              <CredentialsPage />
             </Route>
           )}
           {authCtx.isLoggedIn && (

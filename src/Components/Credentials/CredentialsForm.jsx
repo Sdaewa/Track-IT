@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProfileForm = () => {
+const CredentialsForm = () => {
   const history = useHistory();
   const classes = useStyles();
 
@@ -111,4 +111,4 @@ const ProfileForm = () => {
   );
 };
 
-export default ProfileForm;
+export default CredentialsForm;

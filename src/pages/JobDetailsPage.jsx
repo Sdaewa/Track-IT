@@ -6,6 +6,7 @@ import Comments from "../Components/comments/Comments";
 import useHttp from "../hooks/use-http";
 import { getSingleJob } from "../lib/api";
 import LoadingSpinner from "../Components/UI/LoadingSpinner";
+import Card from "../Components/UI/Card";
 
 const JobDetailsPage = () => {
   const match = useRouteMatch();
@@ -43,7 +44,7 @@ const JobDetailsPage = () => {
   }
 
   return (
-    <Fragment>
+    <Card>
       <FullJobDetails
         company={job.company}
         role={job.role}
@@ -55,7 +56,7 @@ const JobDetailsPage = () => {
           <Comments />
         </div>
       </Route>
-    </Fragment>
+    </Card>
   );
 };
 

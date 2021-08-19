@@ -1,18 +1,15 @@
 import React from "react";
 import {
   Avatar,
-  Button,
   CssBaseline,
-  TextField,
   Grid,
   Typography,
-  Box,
   Container,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Card from "../UI/Card";
-import ProfileForm from "./ProfileForm";
+import CredentialsForm from "./CredentialsForm";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -21,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UserProfile = () => {
+const UserCredentials = () => {
   const classes = useStyles();
 
   return (
@@ -34,12 +31,12 @@ const UserProfile = () => {
             className={classes.avatar}>
             <AccountCircleIcon />
           </Avatar>
-          <Typography variant="h4">Profile</Typography>
-          <ProfileForm />
+          <Typography variant="h4">Credentials</Typography>
+          <CredentialsForm />
         </Grid>
       </Container>
     </Card>
   );
 };
 
-export default UserProfile;
+export default UserCredentials;
