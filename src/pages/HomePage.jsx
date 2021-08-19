@@ -13,7 +13,7 @@ const HomePage = () => {
         <br />
         <HomeImg style={{ transform: "scale(0.8)" }} />
         <Typography variant="h4" align="center">
-          Keep track of all the job applications in one place
+          Keep track of your job applications in one place
         </Typography>
       </Grid>
     </Grid>

@@ -8,9 +8,11 @@ import {
   Popper,
   MenuItem,
   MenuList,
+  Box,
+  IconButton,
   CssBaseline,
 } from "@material-ui/core";
-
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import AuthContext from "../../store/auth-context";
 
 const MenuListComposition = () => {
@@ -65,14 +67,16 @@ const MenuListComposition = () => {
         </div>
       )}
       <div>
-        <Button
-          ref={anchorRef}
-          aria-controls={open ? "menu-list-grow" : undefined}
-          aria-haspopup="true"
-          style={{ color: "white" }}
-          onClick={handleToggle}>
-          MENU
-        </Button>
+        {isLoggedIn && (
+          <Button
+            ref={anchorRef}
+            aria-controls={open ? "menu-list-grow" : undefined}
+            aria-haspopup="true"
+            style={{ color: "white" }}
+            onClick={handleToggle}>
+            <AccountBoxIcon />
+          </Button>
+        )}
         <Popper
           open={open}
           anchorEl={anchorRef.current}

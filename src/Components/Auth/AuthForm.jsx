@@ -33,17 +33,6 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-  textField: {
-    width: "90%",
-    marginLeft: "auto",
-    marginRight: "auto",
-    paddingBottom: 0,
-    marginTop: 0,
-    fontWeight: 500,
-  },
-  input: {
-    color: "white",
-  },
 }));
 
 const AuthForm = () => {
@@ -123,8 +112,8 @@ const AuthForm = () => {
         <form className={classes.form} onSubmit={submitHandler}>
           <TextField
             variant="outlined"
-            style={{ backgroundColor: "white" }}
             margin="normal"
+            style={{ backgroundColor: "white" }}
             required
             fullWidth
             id="email"
@@ -134,9 +123,6 @@ const AuthForm = () => {
             name="email"
             autoFocus
             inputRef={emailInputRef}
-            InputProps={{
-              className: classes.input,
-            }}
           />
           <TextField
             variant="outlined"

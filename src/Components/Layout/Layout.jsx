@@ -24,12 +24,12 @@ const Layout = (props) => {
   return (
     <>
       <CssBaseline />
-      <header style={{ zIndex: "1" }}>
+      <header>
         <Navbar />
       </header>
       <div className={classes.root}>
         <Container component="main" className={classes.main} maxWidth="md">
-          <Grid container spacing={2} justifyContent="center">
+          <Grid container spacing={0} justifyContent="center">
             <Grid item>
               <main>{props.children}</main>
             </Grid>
