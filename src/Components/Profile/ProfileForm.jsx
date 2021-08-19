@@ -1,13 +1,34 @@
 import React, { useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { Button } from "@material-ui/core";
-
+import { Box, Button, TextField } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import AuthContext from "../../store/auth-context";
-import classes from "./ProfileForm.module.css";
+
 import { URL_UPDATE } from "../../Config/config";
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
 
 const ProfileForm = () => {
   const history = useHistory();
+  const classes = useStyles();
 
   const newPasswordInputRef = useRef();
   const newEmailInputRef = useRef();
@@ -38,11 +59,38 @@ const ProfileForm = () => {
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <div className={classes.control}>
-        <label htmlFor="new-email">New Email</label>
+        <TextField
+          variant="outlined"
+          margin="normal"
+          style={{ backgroundColor: "white" }}
+          required
+          fullWidth
+          id="email"
+          type="email"
+          label="Email Address"
+          htmlFor="email"
+          name="email"
+          minLength="7"
+          inputRef={newEmailInputRef}
+        />
+        <TextField
+          variant="outlined"
+          margin="normal"
+          style={{ backgroundColor: "white" }}
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          htmlFor="password"
+          minLength="7"
+          inputRef={newPasswordInputRef}
+        />
+        {/* <label htmlFor="new-email">New Email</label>
         <input
           type="password"
           id="new-password"
-          minLength="7"
           ref={newEmailInputRef}
         />
       </div>
@@ -51,15 +99,14 @@ const ProfileForm = () => {
         <input
           type="password"
           id="new-password"
-          minLength="7"
           ref={newPasswordInputRef}
-        />
+        /> */}
       </div>
-      <div className={classes.action}>
-        <Button type="submit" variant="contained">
+      <Box textAlign="center" padding="10px">
+        <Button color="primary" type="submit" variant="contained">
           Change Password
         </Button>
-      </div>
+      </Box>
     </form>
   );
 };

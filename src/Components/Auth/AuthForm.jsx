@@ -7,12 +7,13 @@ import {
   TextField,
   Grid,
   Typography,
+  Box,
   Container,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import AuthContext from "../../store/auth-context";
-import Card from "../UI/Card";
+
 import { URL_SIGN_UP } from "../../Config/config";
 import { URL_SIGN_IN } from "../../Config/config";
 
@@ -149,19 +150,17 @@ const AuthForm = () => {
             </Button>
           )}
           {isLoading && <p>Sending request...</p>}
-          <Grid container>
-            <Grid item>
-              <Button
-                style={{ backgroundColor: "#303F9F", color: "white" }}
-                onClick={switchAuthModeHandler}>
-                {isLogin ? (
-                  <Typography>Create new account</Typography>
-                ) : (
-                  <Typography>Login with existing account</Typography>
-                )}
-              </Button>
-            </Grid>
-          </Grid>
+          <Box textAlign="center">
+            <Button
+              style={{ backgroundColor: "#303F9F", color: "white" }}
+              onClick={switchAuthModeHandler}>
+              {isLogin ? (
+                <Typography>Create new account</Typography>
+              ) : (
+                <Typography>Login with existing account</Typography>
+              )}
+            </Button>
+          </Box>
         </form>
       </div>
     </Container>
