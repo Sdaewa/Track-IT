@@ -44,9 +44,11 @@ const Comments = () => {
   }
 
   return (
-    <Grid container alignItems="center">
+    <Grid container>
       <Grid item>
-        <Typography variant="h5">Comments</Typography>
+        <Typography align="center" style={{ padding: "15px" }} variant="h5">
+          Comments
+        </Typography>
         <Grid item>{comments}</Grid>
         <NewCommentForm jobId={jobId} onAddedComment={addedCommentHandler} />
       </Grid>
