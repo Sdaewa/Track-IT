@@ -67,7 +67,7 @@ const ProfileForm = () => {
           fullWidth
           id="email"
           type="email"
-          label="Email Address"
+          label="New Email Address"
           htmlFor="email"
           name="email"
           minLength="7"
@@ -80,7 +80,7 @@ const ProfileForm = () => {
           required
           fullWidth
           name="password"
-          label="Password"
+          label="New Password"
           type="password"
           id="password"
           htmlFor="password"
