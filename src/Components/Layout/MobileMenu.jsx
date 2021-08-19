@@ -39,53 +39,54 @@ const MobileMenu = () => {
           </div>
         )}
       </div>
-      {isLoggedIn && (
-        <Menu
-          anchorEl={mobileMoreAnchorEl}
-          anchorOrigin={{ vertical: "top", horizontal: "right" }}
-          id={mobileMenuId}
-          keepMounted
-          transformOrigin={{ vertical: "top", horizontal: "right" }}
-          open={isMobileMenuOpen}
-          onClose={handleMobileMenuClose}>
-          {isLoggedIn && (
-            <Link
-              to="/new-job"
-              style={{ color: "black", textDecoration: "none" }}>
-              <MenuItem>Add job</MenuItem>
-            </Link>
-          )}
-          {isLoggedIn && (
-            <Link to="/jobs" style={{ color: "black", textDecoration: "none" }}>
-              <MenuItem>Jobs</MenuItem>
-            </Link>
-          )}
-          {isLoggedIn && (
-            <Link
-              to="/profile"
-              style={{ color: "black", textDecoration: "none" }}>
-              <MenuItem>Profile</MenuItem>
-            </Link>
-          )}
-          {isLoggedIn && (
-            <Link to="/" style={{ color: "black", textDecoration: "none" }}>
-              <MenuItem onClick={logoutHandler}>Logout</MenuItem>
-            </Link>
-          )}
-        </Menu>
-      )}
+
+      <Menu
+        anchorEl={mobileMoreAnchorEl}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        id={mobileMenuId}
+        keepMounted
+        transformOrigin={{ vertical: "top", horizontal: "right" }}
+        open={isMobileMenuOpen}
+        onClose={handleMobileMenuClose}>
+        {isLoggedIn && (
+          <Link
+            to="/new-job"
+            style={{ color: "black", textDecoration: "none" }}>
+            <MenuItem>Add job</MenuItem>
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link to="/jobs" style={{ color: "black", textDecoration: "none" }}>
+            <MenuItem>Jobs</MenuItem>
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link
+            to="/profile"
+            style={{ color: "black", textDecoration: "none" }}>
+            <MenuItem>Profile</MenuItem>
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link to="/" style={{ color: "black", textDecoration: "none" }}>
+            <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+          </Link>
+        )}
+      </Menu>
     </>
   );
 
   return (
     <>
-      <IconButton
-        aria-controls={mobileMenuId}
-        aria-haspopup="true"
-        onClick={handleMobileMenuOpen}
-        color="inherit">
-        <MoreIcon />
-      </IconButton>
+      {isLoggedIn && (
+        <IconButton
+          aria-controls={mobileMenuId}
+          aria-haspopup="true"
+          onClick={handleMobileMenuOpen}
+          color="inherit">
+          <MoreIcon />
+        </IconButton>
+      )}
       {renderMobileMenu}
     </>
   );
