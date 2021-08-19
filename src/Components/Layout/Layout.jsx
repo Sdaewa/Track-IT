@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "100vh",
   },
   main: {
-    marginTop: theme.spacing(10),
-    marginBottom: theme.spacing(10),
-    paddingTop: theme.spacing(10),
-    paddingBottom: theme.spacing(10),
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(5),
+    paddingTop: theme.spacing(5),
+    paddingBottom: theme.spacing(5),
   },
 }));
 

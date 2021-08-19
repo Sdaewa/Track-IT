@@ -149,7 +149,9 @@ const AuthForm = () => {
               {isLogin ? "Login" : "Create Account"}
             </Button>
           )}
-          {isLoading && <p>Sending request...</p>}
+          <Typography variant="subtitle1" align="center">
+            {isLoading && <p>Login you in...</p>}
+          </Typography>
           <Box textAlign="center">
             <Button
               style={{ backgroundColor: "#303F9F", color: "white" }}
