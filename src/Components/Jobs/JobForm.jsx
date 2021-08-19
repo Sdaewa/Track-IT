@@ -1,7 +1,7 @@
 import React, { Fragment, useRef, useState } from "react";
 import { Prompt } from "react-router-dom";
 
-import { Button, TextField, Grid } from "@material-ui/core";
+import { Button, Box, TextField, Grid, Typography } from "@material-ui/core";
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -118,7 +118,11 @@ const JobForm = (props) => {
                   label="Company"
                   inputRef={companyRef}
                 />
-                {!formInputsValidity.company && <p>Please enter a company</p>}
+                {!formInputsValidity.company && (
+                  <Typography color="secondary">
+                    Please enter a company
+                  </Typography>
+                )}
               </Grid>
             </Grid>
           </div>
@@ -133,7 +137,9 @@ const JobForm = (props) => {
                   label="Role"
                   inputRef={roleRef}
                 />
-                {!formInputsValidity.role && <p>Please enter a role</p>}
+                {!formInputsValidity.role && (
+                  <Typography color="secondary">Please enter a role</Typography>
+                )}
               </Grid>
             </Grid>
           </div>
@@ -149,7 +155,9 @@ const JobForm = (props) => {
                   inputRef={techStackRef}
                 />
                 {!formInputsValidity.techStack && (
-                  <p>Please enter the tech stack</p>
+                  <Typography color="secondary">
+                    Please enter the tech stack
+                  </Typography>
                 )}
               </Grid>
             </Grid>
@@ -170,15 +178,16 @@ const JobForm = (props) => {
               />
             </Grid>
           </MuiPickersUtilsProvider>
-          <div>
+          <Box textAlign="center">
             <Button
+              color="primary"
               type="submit"
               variant="contained"
               onClick={finishEnteringHandler}
               className="btn">
               Add Job
             </Button>
-          </div>
+          </Box>
         </form>
       </Card>
     </Fragment>
