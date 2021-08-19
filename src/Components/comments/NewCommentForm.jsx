@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Divider, Button, TextField, Grid } from "@material-ui/core";
 
 import useHttp from "../../hooks/use-http";
@@ -8,6 +8,7 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 
 const NewCommentForm = (props) => {
   const commentTextRef = useRef();
+  const [inputValue, setInputValue] = useState("");
   const { sendRequest, status, error } = useHttp(addComment);
   const { onAddedComment } = props;
 
@@ -19,8 +20,8 @@ const NewCommentForm = (props) => {
 
   const submitFormHandler = (event) => {
     event.preventDefault();
-
-    const enteredText = commentTextRef.current.value;
+    setInputValue("");
+    let enteredText = commentTextRef.current.value;
 
     // optional: Could validate here
 
@@ -41,10 +42,13 @@ const NewCommentForm = (props) => {
             style={{
               width: "30vw",
             }}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
             size="medium"
             id="outlined-multiline-static"
             multiline
             rows={8}
+            type="reset"
             variant="outlined"
             inputRef={commentTextRef}
           />
