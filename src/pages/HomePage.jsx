@@ -13,7 +13,7 @@ const HomePage = () => {
             Welcome to Track IT
           </Typography>
           <br />
-          <HomeImg style={{ transform: "scale(0.8)" }} />
+          <HomeImg style={{ transform: "scale(0.8)", maxWidth: "100%" }} />
           <Typography variant="h4" align="center" gutterBottom>
             Keep track of your job applications in one place
           </Typography>
